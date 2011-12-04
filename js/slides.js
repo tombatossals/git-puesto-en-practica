@@ -30,7 +30,7 @@ function checkVersion() {
 
 checkVersion();
 
-var PERMANENT_URL_PREFIX = 'http://git.micronautas.com';
+var PERMANENT_URL_PREFIX = 'http://git.micronautas.com/';
 
 var SLIDE_CLASSES = ['far-past', 'past', 'current', 'next', 'far-next'];
 
