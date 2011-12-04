@@ -395,7 +395,7 @@ article h1.title {
 
 .slides > article > h2.title {
     position: absolute;
-    top: 38%;
+    top: 35%;
     left: 0;
     width: 870px;
     text-align: center;
@@ -405,6 +405,10 @@ article h1.title {
     color: white;
     font-weight: normal; 
     text-decoration: none;
+}
+
+.slides > article > h2.subtitle {
+    top: 45%;
 }
 
 article.fill .source {
