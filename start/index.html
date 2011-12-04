@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Git fácil</title>
+    <meta charset='utf-8'>
+    <script src='../js/slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <article class='biglogo'>
+        <h1 class="title">La sesión de hoy...</h1>
+        <h2 class="title">Git <span style="font-size: .5em">fácil</span></h2>
+        <div class='source'>
+          <a href="https://plus.google.com/100184619238119414805/posts">+David Rubert</a>
+        </div>
+        <div class='source right'>
+          <a id="about-reference" href="#13">Acerca de...</a>
+        </div>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Introducción
+        </h1>
+        <hr class="title" />
+        <a  href="http://es.wikipedia.org/wiki/Git"><img class="logo"
+            src="../images/wikipedia-logo.jpg" /></a>
+        <h2>Git</h2>
+        <p class="justify">
+          <strong>Git</strong> es un software de control de versiones distribuido pensado para la
+          eficiencia y confiabilidad del mantenimiento de versiones de
+          aplicaciones cuando éstas tienen un gran número de archivos de código fuente.
+        </p>
+        <p class="justify">
+          El diseño de Git resulta de la experiencia del diseñador de Linux,
+          Linus Torvalds, manteniendo una enorme cantidad de código distribuido
+          y gestionado por mucha gente, que incide en numerosos detalles de
+          rendimiento.</li>
+        </p>
+      </article>
+      
+      <article>
+        <h2>
+            Características
+        </h2>
+        <ul>
+          <li>
+          <strong>Soporte al desarrollo no lineal</strong>. Las ramas en Git
+          van muy baratas (crear una rama y fusionar posteriormente es trivial).
+          </li>
+          <li>
+          <strong>Desarrollo distribuido</strong>. Cada desarrollador tiene una
+          copia local del repositorio.
+          </li>
+          <li>
+          <strong>Compatibilidad</strong> con protocolos y sistemas ya
+          existentes: <strong>HTTP</strong>, <strong>FTP</strong>,
+          <strong>rsync</strong>, o <strong>SSH</strong>.
+          </li>
+          <li>
+            <strong>Autenticación criptográfica del historial</strong>. Una vez
+            hecho un commit no es posible hacer cambios sin ser detectado.
+          </li>
+        </ul>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="El creador de Git: Linus Torvalds" src='images/linus.jpg'>
+        <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+
+        </div>
+      </article>
+
+      <article>
+        <h2>
+            Plataformas
+        </h2>
+        <p>¿En qué plataformas funciona Git?</p>
+        <ul>
+          <li>
+            <strong>Linux</strong>. Es su platafoma nativa.
+          </li>
+          <li>
+            <strong>Sistemas POSIX</strong>. Con ello cualquier variante Unix:
+            BSD, Solaris, Darwin (MacOSX), etc.
+          </li>
+          <li>
+            <strong>Windows</strong>. A través de alguna de estas
+            implementaciones: <a href="http://code.google.com/p/msysgit/">msysGit</a>, 
+            <a href="http://code.google.com/p/tortoisegit/">TortoiseGit</a>,
+            encima de <a href="http://www.cygwin.com/">Cygwin</a>, o <a href="http://www.jgit.org/">JGit</a>.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <img class="logo" src="images/macosx-pkg.jpg" />
+        <h2>
+            Instalación
+        </h2>
+        <p>La instalación de <strong>Git</strong> dependerá de la plataforma,
+        pero suele ser un proceso trivial ya que viene empaquetado en todas las
+        distribuciones.</p>
+        <pre class="prettify lang-sh"># En Ubuntu/debian
+$ sudo apt-get install git
+
+# En Archlinux
+$ sudo pacman -S git
+</pre>
+        <p>En Windows o MacOSX puede ser un poco más laborioso, pero no mucho
+        más.</p>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Cómo usar Git: Comandos básicos
+        </h1>
+        <hr class="title">
+        <a  href="http://es.wikipedia.org/wiki/Git"><img class="logo"
+            src="../images/terminal-logo.png" /></a>
+        <h2>Inicializar un repositorio</h2>
+        <p class="justify">
+          <strong>git init</strong>. Es el comando que nos permite iniciar el control de versiones sobre un directorio.
+        </p>
+        <pre class="prettify lang-sh"># Creamos un directorio y un archivo
+$ mkdir helloworld
+$ cd hellworld
+[~/helloworld]$ echo "Hello World" > README
+
+# Inicializamos el repositorio
+[~/helloworld]$ git init
+Initialized empty Git repository in /home/dave/helloworld/.git/
+</pre>
+      </article>
+      
+      <article>
+        <a  href="http://es.wikipedia.org/wiki/Git"><img class="logo"
+            src="../images/terminal-logo.png" /></a>
+        <h2>Clonar un repositorio</h2>
+        <p class="justify">
+          <strong>glit clone</strong>. Este comando obtiene una copia local de un repositorio remoto.
+        </p>
+        <pre class="prettify lang-sh"># Clonamos el repositorio fuente de esta presentacion
+$ git clone git://github.com/tombatossals/gitfacil.git
+</pre>
+      </article>
+      
+      <article>
+        <h3>
+          Slide with a table
+        </h3>
+        
+        <table>
+          <tr>
+            <th>
+              Name
+            <th>
+              Occupation
+          <tr>
+            <td>
+              Luke Mahé
+            <td>
+              V.P. of Keepin’ It Real
+          <tr>
+            <td>
+              Marcin Wichary
+            <td>
+              The Michael Bay of Doodles
+        </table>
+      </article>
+      
+      <article>
+        <h3>
+          Slide with an image (centered)
+        </h3>
+        <p>
+          <img class='centered' style='height: 500px' src='../images/github-logo.png'>
+        </p>
+        <div class='source'>
+          Source: Larry Page
+        </div>
+      </article>
+
+      <article>
+        <q>
+          The best way to predict the future is to invent it.
+        </q>
+        <div class='author'>
+          Alan Kay
+        </div>
+      </article>
+      
+      <article class='smaller'>
+        <q>
+          A distributed system is one in which the failure of a computer 
+          you didn’t even know existed can render your own computer unusable.
+        </q>
+        <div class='author'>
+          Leslie Lamport
+        </div>
+      </article>
+      
+      <article id="about" class="justify">
+        <h1 class="title">
+          Acerca de esta presentación...
+        </h1>
+        <hr class="title" />
+        <img class="logo" src="../images/drupal-logo.jpg" />
+        <p>Esta presentación se creó para dar una charla de iniciación a <a
+            href="http://git-scm.com/">Git</a> en el <a
+            href="http://groups.drupal.org/node/188859">Grupo de usuarios
+            Drupal Castellón</a>. Pongo una recopilación de enlaces al software que se ha utilizado
+        para realizarla.</p>
+        <ul>
+            <li><a
+                href="http://code.google.com/p/html5slides/">html5slides</a>.
+            Es el código HTML de presentaciones en el que está basado en este
+            proyecto.</li>
+        </ul>
+      </article>
+      
+    </section>
+
+  </body>
+</html>
