@@ -23,7 +23,6 @@ html {
   src: local("Holtwood One SC"), local("HoltwoodOneSC"), url("../fonts/HoltwoodOneSC.ttc"), url("http://themes.googleusercontent.com/static/fonts/holtwoodonesc/v2/sToOq3cIxbfnhbEkgYNuBbFxFljtrsr2f1jsZCF5R04.ttf") format("truetype"); 
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -43,6 +42,22 @@ body {
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
 
   -webkit-font-smoothing: antialiased;
+}
+
+a.home {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 3px solid transparent;
+}
+
+a.home > img {
+    width: 48px;
+}
+
+a.home:hover {
+    border: 3px dashed #222;
 }
 
 .slides {
@@ -369,6 +384,32 @@ article hr.title {
     border: 0;
 }
 
+section.frontpage > article ul {
+    margin-top: 4em;
+    text-align: center;
+}
+
+section.frontpage > article li:before {
+    content: "";
+}
+
+section.frontpage > article li > a {
+    font-size: 1.6em;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: .8em .5em;
+    border-radius: 14px;
+    -o-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+}
+
+section.frontpage > article li > a:hover {
+    background: #518282;
+}
+
 article h1.title {
     position: absolute;
     top: 0px;
@@ -385,6 +426,11 @@ article h1.title {
     -o-border-radius: 10px 0px 0px 0px;
     -moz-border-radius: 10px 0px 0px 0px;
     -webkit-border-radius: 10px 10px 0px 0px;
+}
+
+article h1.title > a {
+    color: white;
+    text-decoration: none;
 }
 
 .slides > article img.logo {

@@ -630,7 +630,7 @@ function handleDomLoaded() {
   makeBuildLists();
 
   var about = document.getElementById("about-reference");
-  about.addEventListener('click', function() { curSlide = slideEls.length -1; updateSlides(); }, false);
+  about.addEventListener('click', function() { curSlide = slideEls.length - 2; updateSlides(); }, false);
   if (imgSlides) {
     updategal();
   }
@@ -674,7 +674,7 @@ if (!window['_DEBUG'] && document.location.href.indexOf('?debug') !== -1) {
 
 function gprev() {
     var g = document.querySelector("article.current.fill");
-    if (g.length == 0) return;
+    if (g.length < 2 ) return;
 
     var imgs = g.querySelectorAll("img");
     var current = g.querySelector("img.curimg");
@@ -697,7 +697,7 @@ function gprev() {
 
 function gnext() {
     var g = document.querySelector("article.current.fill");
-    if (g.length == 0) return;
+    if (g.length < 2 ) return;
 
     var imgs = g.querySelectorAll("img");
     var current = g.querySelector("img.curimg");
@@ -743,7 +743,9 @@ function updategal() {
     current.className = "curimg";
     current.style.height = wh + "px";
 
-    if (imgs.length >= 1) {
+    if (imgs.length > 1) {
         g.querySelector("h3").innerHTML = active + "/" + total + " " + current.getAttribute("alt");
+    } else {
+        g.querySelector("h3").innerHTML = current.getAttribute("alt");
     }
 }
