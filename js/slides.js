@@ -674,9 +674,11 @@ if (!window['_DEBUG'] && document.location.href.indexOf('?debug') !== -1) {
 
 function gprev() {
     var g = document.querySelector("article.current.fill");
-    if (g.length < 2 ) return;
+    if (g.length < 1 ) return;
 
     var imgs = g.querySelectorAll("img");
+    if (imgs.length < 2 ) return;
+
     var current = g.querySelector("img.curimg");
     if (!current) current = imgs[0];
     var active = 0;
@@ -690,6 +692,7 @@ function gprev() {
     var prev = imgs[active-1];
     prev.className = "curimg";
     prev.style.height = wh + "px";
+
     g.querySelector("h3").innerHTML = active + "/" + total + " " + prev.getAttribute("alt");
 
     return true;
@@ -697,9 +700,11 @@ function gprev() {
 
 function gnext() {
     var g = document.querySelector("article.current.fill");
-    if (g.length < 2 ) return;
+    if (g.length < 1 ) return;
 
     var imgs = g.querySelectorAll("img");
+    if (imgs.length < 2 ) return;
+
     var current = g.querySelector("img.curimg");
     if (!current) current = imgs[0];
     var active = 0;
@@ -713,6 +718,7 @@ function gnext() {
     var next = imgs[active-1];
     next.className = "curimg";
     next.style.height = wh + "px";
+
     g.querySelector("h3").innerHTML = active + "/" + total + " " + next.getAttribute("alt");
 
     return true;
