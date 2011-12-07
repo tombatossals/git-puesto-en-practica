@@ -729,11 +729,14 @@ function updategal() {
     var g = document.querySelector("article.current.fill");
     if (g == null || g.length == 0) return;
 
-    // Al pulsar click sobre el titulo, ocultarlo por 10 segundos
-    g.querySelector("h3").addEventListener("click", function() { 
-        this.style.display = "none";
-        var h3 = this;
-        setTimeout( function () { h3.style.display = "inherit"; }, 10000);
+    // Al pulsar click sobre la diapositiva, ocultar el título por 10 segundos
+    g.addEventListener("click", function(e) { 
+        e.preventDefault();
+        var h3 = this.querySelector("h3");
+        h3.style.display = "none";
+        var source = this.querySelector("div.source");
+        source.style.display = "none";
+        setTimeout( function () { h3.style.display = "inherit"; source.style.display = "inherit"}, 10000);
     });
 
 

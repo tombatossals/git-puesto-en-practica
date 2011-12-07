@@ -215,6 +215,7 @@ html {
 body {
     padding: 3em;
     font-family: 'Holtwood One SC', Arial;
+    min-width: 960px;
 }
 
 h1#title {
@@ -233,27 +234,26 @@ h1#title > span.git {
 article > ul {
     font-size: 2.5em;
     list-style: none;
-    padding: 2em 4em;
+    padding: 2em;
 }
 
 article > ul > li > a {
     text-decoration: none;
-    border: 1px solid #EEE;
     padding: .5em 4em .5em 1em;
-    border-radius: 20px;
-    -o-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    color: #888;
+    color: #222;
 }
 
 article > ul > li > a:visited {
-    color: #888;
+    color: #222;
 }
 
 article > ul > li > a:hover {
     box-shadow: 0 0 5px 5px #888;
-    color: #222;
+    border: 1px solid #EEE;
+    border-radius: 20px;
+    -o-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
 }
 
 footer {
