@@ -133,7 +133,7 @@ $ sudo pacman -S git
       </article>
 
       <article>
-        <h1 class="title">Correspondencias básicas con Subversion</h1>
+        <h1 class="title">Correspondencias con Subversion</h1>
         <hr class="title" />
         <table>
             <tr style="background: #EEE;">
@@ -185,6 +185,56 @@ $ sudo pacman -S git
                 <td>svn copy &lt;url1&gt; &lt;url2&gt;</td>
             </tr>
         </table>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Atención: necesito vuestra concentración" src='images/attention.gif'>
+      </article>
+
+      <article>
+        <h1 class="title">El índice (staging area)</h1>
+        <hr class="title" />
+        <p class="justify">
+        El índice de Git es una zona intermedia que almacena los cambios que
+        queremos hacer efectivos en el próximo commit, es decir, una zona a
+        medio camino entre el repositorio y tu directorio de trabajo.</p>
+        <p>Lo utilizaremos para construir un commit que agrupe modificaciones en varios archivos.</p>
+        <p>Cuando hagamos el commit, se enviará los cambios que hayamos
+        especificado en el índice, que no tiene por qué coincidir con lo que haya en nuestro directorio de trabajo.</p>
+        <hr style="margin: 1em 0;" />
+        <p>El comando que nos muestra la información sobre el estado del índice es <strong>git status</strong>.</p>
+      </article>
+      
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Ejemplo de un 'git status'" src='images/gitstatus.png'>
+      </article>
+
+      <article>
+        <h1 class="title">Los "snapshots"</h1>
+        <hr class="title" />
+        <img class="logo" src="images/snapshotting.png" />
+        <p class="justify">
+        Aquí tenemos una diferencia fundamental con respecto al modo de trabajar de
+        otros SMC. Git trabaja almacenando instantáneas de todo el árbol de
+        archivos modificados entre commits. Otros sistemas de control de
+        revisiones trabajan a nivel de archivo individual.
+        </p>
+        <hr style="margin: 1em 0;" />
+        <p>En cada "pantallazo", los cambios que se mandan al repositorio son
+        los de aquellos archivos planificados en el índice.</p>
+
+      </article>
+      
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Ejemplo de un 'git push'" src='images/gitpush.png'>
+        <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+
+        </div>
       </article>
 
       <article>
@@ -251,8 +301,7 @@ $ cd git-in-practice/
       <article>
         <img class="logo" src="../images/terminal-logo.png" />
         <h2>Obtención de diferencias</h2>
-        <p>Tenemos dos posibles maneras de hacer un diff, dependiendo de lo que
-        queramos comparar.</p>
+        <p>Tenemos tres posibles maneras de hacer un diff.</p>
         <hr style="margin: 1em 0;"/>
         <p class="justify">
           <strong>git diff</strong>. Nos muestra las diferencias de los cambios
@@ -264,12 +313,18 @@ $ cd git-in-practice/
           los cambios planificados para el próximo commit con respecto al
           repositorio.
         </p>
+        <hr style="margin: 1em 0;"/>
+        <p class="justify">
+          <strong>git diff HEAD</strong>. Compara el directorio de trabajo y el
+          último commit al repositorio.
+        </p>
       </article>
       
       <article class='fill'>
         <h3></h3>
         <img alt="Ejemplo de un 'git diff'" src='images/gitdiff.png'>
         <img alt="Ejemplo de un 'git diff --cached'" src='images/gitdiffcached.png'>
+        <img alt="Ejemplo de un 'git diff HEAD'" src='images/gitdiffhead.png'>
         <div class='source white'>
             <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
 
@@ -315,51 +370,6 @@ $ cat $HOME/.gitconfig
         <p><strong>Ejercicio:</strong> Ejecuta un "find .git" en tu directorio de trabajo y echa un vistazo a la estructura de archivos que hay creada.</p>
       </article>
       
-      <article>
-        <h1 class="title">Los "snapshots"</h1>
-        <hr class="title" />
-        <img class="logo" src="images/snapshotting.png" />
-        <p class="justify">
-        <strong>IMPORTANTE</strong>. Aquí
-        tenemos una diferencia fundamental con respecto al modo de trabajar de
-        otros SMC. Git trabaja sacando instantáneas de todo el árbol de
-        archivos modificados entre commits. Otros sistemas de control de
-        revisiones trabajan a nivel de archivo individual.
-        </p>
-        <ul>
-            <li>Es más costoso examinar el historial de cambios de un archivo
-            individual que de todo el proyecto.</li>
-        </ul>
-
-      </article>
-      
-      <article>
-        <h1 class="title">El índice</h1>
-        <hr class="title" />
-        <img class="logo" src="../images/terminal-logo.png" />
-        <h2>git status</h2>
-        <p class="justify">
-        El índice nos informa sobre las diferencias actuales entre el repositorio y tu directorio de trabajo.</p>
-        <p>Lo utilizaremos para construir un commit que agrupe modificaciones en varios archivos.</p>
-        <p>Cuando hagamos el commit, se enviará lo que haya en el índice, no lo que haya en nuestro directorio de trabajo.</p>
-        <p>El comando que nos muestra la información sobre el índice es <strong>git status</strong>.</p>
-      </article>
-      
-      <article class='fill'>
-        <h3></h3>
-        <img alt="Ejemplo de un 'git status'" src='images/gitstatus.png'>
-      </article>
-
-      <article class='fill'>
-        <h3></h3>
-        <img alt="Ejemplo de un 'git push'" src='images/gitpush.png'>
-        <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
-        <div class='source white'>
-            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
-
-        </div>
-      </article>
-
       <article class="justify">
         <h1 class="title">
           Acerca de esta presentación...
