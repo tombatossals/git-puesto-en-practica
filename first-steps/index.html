@@ -32,7 +32,7 @@
       <article class='biglogo'>
         <h1 class="title">En el capítulo de hoy...</h1>
         <h2 class="title">Git <span style="font-size: .5em">in practice</span></h2>
-        <h2 class="title subtitle"><span style="font-size: .2em">Primeros pasos</span></h2>
+        <h3 class="subtitle"><span style="font-size: .2em">Primeros pasos</span></h3>
         <div class='source'>
           <a href="https://plus.google.com/100184619238119414805/posts">+David Rubert</a>
         </div>
@@ -46,7 +46,7 @@
           Introducción
         </h1>
         <hr class="title" />
-        <a  href="http://es.wikipedia.org/wiki/Git"><img class="logo"
+        <a  href="http://en.wikipedia.org/wiki/Git_(software)"><img class="logo"
             src="../images/wikipedia-logo.jpg" /></a>
         <h2>Git</h2>
         <p class="justify">
@@ -133,6 +133,61 @@ $ sudo pacman -S git
       </article>
 
       <article>
+        <h1 class="title">Correspondencias básicas con Subversion</h1>
+        <hr class="title" />
+        <table>
+            <tr style="background: #EEE;">
+                <th>Git</th>
+                <th>Subversion</th>
+            </tr>
+            <tr>
+                <td>git add &lt;file&gt;</td>
+                <td>svn add &lt;file&gt;</td>
+            </tr>
+            <tr>
+                <td>git rm &lt;file&gt;</td>
+                <td>svn rm &lt;file&gt;</td>
+            </tr>
+            <tr>
+                <td>git mv &lt;file&gt;</td>
+                <td>svn mv &lt;file&gt;</td>
+            </tr>
+            <tr>
+                <td>git diff</td>
+                <td>svn diff | less</td>
+            </tr>
+            <tr>
+                <td>git log </td>
+                <td>svn log | less</td>
+            </tr>
+            <tr>
+                <td>git status</td>
+                <td>svn status</td>
+            </tr>
+            <tr>
+                <td>git commit -a</td>
+                <td>svn commit</td>
+            </tr>
+            <tr>
+                <td>git clone &lt;url&gt;</td>
+                <td>svn checkout &lt;url&gt;</td>
+            </tr>
+            <tr>
+                <td>git checkout &lt;path&gt;</td>
+                <td>svn revert &lt;path&gt;</td>
+            </tr>
+            <tr>
+                <td>git tag -a &lt;tag-name&gt;</td>
+                <td>svn copy &lt;url1&gt; &lt;url2&gt;</td>
+            </tr>
+            <tr>
+                <td>git branch &lt;branch-name&gt;</td>
+                <td>svn copy &lt;url1&gt; &lt;url2&gt;</td>
+            </tr>
+        </table>
+      </article>
+
+      <article>
         <h1 class="title">
           Comandos básicos
         </h1>
@@ -157,7 +212,7 @@ Initialized empty Git repository in /home/dave/helloworld/.git/
         <img class="logo" src="../images/terminal-logo.png" />
         <h2>Clonar un repositorio</h2>
         <p class="justify">
-          <strong>glit clone</strong>. Este comando obtiene una copia local de un repositorio remoto.
+          <strong>git clone</strong>. Este comando obtiene una copia local de un repositorio remoto.
         </p>
         <pre class="prettify lang-sh"># Clonamos el repositorio fuente de esta presentacion
 $ git clone git@github.com:tombatossals/git-in-practice.git
@@ -171,6 +226,79 @@ Resolving deltas: 100% (11/11), done.
 $ cd git-in-practice/
 [~/git-in-practice]$ ls
 500.html  css  first  fonts  images  index.html  js  README.md
+</pre>
+      </article>
+      
+      <article>
+        <img class="logo" src="../images/terminal-logo.png" />
+        <h2>Operaciones básicas</h2>
+        <p class="justify">
+          <strong>add/rm/mv</strong>. Son las operaciones más
+          básicas sobre archivos en el repositorio respecto al directorio de
+          trabajo.
+        </p>
+        <pre class="prettify lang-sh"># Añadir un archivo local al repositorio
+[~/git-in-practice]$ git add 404.html
+
+# Mover un archivo a otro directorio (también renombrar)
+[~/git-in-practice]$ git mv TODO first-steps/
+
+# Borrar un archivo del repositorio y local
+[~/git-in-practice]$ git rm hola
+</pre>
+      </article>
+      
+      <article>
+        <img class="logo" src="../images/terminal-logo.png" />
+        <h2>Obtención de diferencias</h2>
+        <p>Tenemos dos posibles maneras de hacer un diff, dependiendo de lo que
+        queramos comparar.</p>
+        <hr style="margin: 1em 0;"/>
+        <p class="justify">
+          <strong>git diff</strong>. Nos muestra las diferencias de los cambios
+          que todavía no hemos planificado para el próximo commit.
+        </p>
+        <hr style="margin: 1em 0;"/>
+        <p class="justify">
+          <strong>git diff --cached</strong>. Nos muestra las diferencias de
+          los cambios planificados para el próximo commit con respecto al
+          repositorio.
+        </p>
+      </article>
+      
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Ejemplo de un 'git diff'" src='images/gitdiff.png'>
+        <img alt="Ejemplo de un 'git diff --cached'" src='images/gitdiffcached.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+
+        </div>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
+      </article>
+
+      <article>
+        <img class="logo" src="../images/terminal-logo.png" />
+        <h2>Configuración global</h2>
+        <p class="justify">
+        <strong>git config</strong>. Establece algunas variables básicas de trabajo, que se trasladarán al
+        archivo de configuración de usuario.
+        </p>
+        <pre class="prettify lang-sh">$ git config --global user.name "Peter Pan"
+$ git config --global user.email "peter.pan@nuncajamas.com"
+$ git config --global color.ui true
+
+# Se modifica el archivo de configuración global de git
+$ cat $HOME/.gitconfig 
+[user]
+    name = Peter Pan
+    email = peter.pan@nuncajamas.com
+[color]
+    ui = true
 </pre>
       </article>
       
@@ -222,29 +350,6 @@ $ cd git-in-practice/
         <img alt="Ejemplo de un 'git status'" src='images/gitstatus.png'>
       </article>
 
-      <article>
-        <h1 class="title blue">Trabajando con Git</h1>
-        <hr class="title" />
-        <img class="logo" src="../images/terminal-logo.png" />
-        <h2>git config</h2>
-        <p class="justify">
-        Vamos a establecer algunas variables
-        básicas de trabajo con las directivas de configuración global.
-        </p>
-        <pre class="prettify lang-sh">$ git config --global user.name "Peter Pan"
-$ git config --global user.email "peter.pan@nuncajamas.com"
-$ git config --global color.ui true
-
-# Se modifica el archivo de configuración global de git
-$ cat $HOME/.gitconfig 
-[user]
-    name = Peter Pan
-    email = peter.pan@nuncajamas.com
-[color]
-    ui = true
-</pre>
-      </article>
-      
       <article class='fill'>
         <h3></h3>
         <img alt="Ejemplo de un 'git push'" src='images/gitpush.png'>
@@ -293,6 +398,7 @@ $ cat $HOME/.gitconfig
             <li><a href="http://progit.org">http://progit.org</a>.</li>
             <li><a href="http://es.gitready.com">http://es.gitready.com</a>.</li>
             <li><a href="http://book.git-scm.com/">http://book.git-scm.com</a>.</li>
+            <li><a href="http://git.or.cz/">http://git.or.cz</a>.</li>
         </ul>
         <img class="logo" style="width: 320px;" src="../images/markers.jpg" />
       </article>

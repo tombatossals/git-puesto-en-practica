@@ -453,8 +453,18 @@ article h1.title > a {
     text-decoration: none;
 }
 
-.slides > article > h2.subtitle {
-    top: 45%;
+.slides > article > h3.subtitle {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 870px;
+    text-align: center;
+    font-family: 'Holtwood One SC', Arial;
+    text-shadow: .1em .1em 0.3em #222;
+    font-size: 4em;
+    color: white;
+    font-weight: normal; 
+    text-decoration: none;
 }
 
 article.fill .source {
@@ -745,5 +755,14 @@ article.smaller q::after {
 
 article h1.title.blue {
     background: #083d5a;
+}
+
+article strong {
+    color: #222;
+    text-shadow: 1px 1px 4px #444;
+}
+
+article h2, article h3 {
+    text-decoration: none;
 }
 
