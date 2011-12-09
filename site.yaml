@@ -1,6 +1,6 @@
 handlers:
 - url: '/first-steps/'
-  static_files: 'index.html'
+  static_files: 'first-steps/index.html'
   upload: '.*'
 - url: '/'
   static_files: 'index.html'
