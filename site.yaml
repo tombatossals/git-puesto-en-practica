@@ -1,5 +1,5 @@
 handlers:
-- url: '/first-steps/'
+- url: '/first-steps/?'
   static_files: 'first-steps/index.html'
   upload: '.*'
 - url: '/'
