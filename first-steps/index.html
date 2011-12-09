@@ -244,10 +244,6 @@ nothing to commit (working directory clean)</pre>
       <article class='fill'>
         <h3></h3>
         <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
-        <div class='source white'>
-            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
-
-        </div>
       </article>
 
       <article>
@@ -295,7 +291,6 @@ $ cd git-in-practice/
       <article>
         <h1 class="title">El directorio .git</h2>
         <hr class="title" />
-        <img class="logo" src="../images/terminal-logo.png" />
         <p class="justify">
           Una de las cosas que más llaman la atención es lo limpio que queda todo en tu directorio de trabajo. Si al clonar un repositorio lo estamos obteniendo de manera completa...</p>
         <ul>
@@ -394,27 +389,34 @@ $ cat $HOME/.gitconfig
         con todos los cambios planificados en los archivos del índice. Es
         habitual enviar un comentario con los cambios hechos en el commit.
         </p>
-        <pre class="prettify lang-sh">$ git commit -m 'explicación de los cambios'
-[master 68aa034] explicacion de los cambios
- 1 files changed, 2 insertions(+), 1 deletions(-)
-
-# Se modifica el archivo de configuración global de git
-$ cat $HOME/.gitconfig 
-[user]
-    name = Peter Pan
-    email = peter.pan@nuncajamas.com
-[color]
-    ui = true
-</pre>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git commit
+[master 1495512] New slides, and demo commit for the slides
+ 3 files changed, 79 insertions(+), 28 deletions(-)</pre>
+        <p>Tenemos un commando especial para vagos, que es: <strong>git commit
+            -a</strong>, que enviará todos los cambios a aquellos archivos que
+        ya estaban en el repositorio, aunque no los hayamos añadido al índice.
+      </article>
+      
+      <article>
+        <h2>Revertir los cambios previstos</h2>
+        <img class="logo" src="../images/terminal-logo.png" />
+        <p class="justify">
+        <strong>git reset HEAD</strong>. Limpia todos aquellos archivos y
+        cambios que se habían planificado en el índice para el próximo commit.
+        </p>
+        <pre class="prettify lang-sh">[dave@inuik git-in-practice]$ git reset HEAD
+Unstaged changes after reset:
+M   first-steps/index.html</pre>
+        <p>Podemos quitar del índice un único archivo si así lo queremos,
+        especificando el nombre del archivo al final del comando: <strong>git
+            reset HEAD -- file.cfg</strong>. Los dos guiones
+        <strong>--</strong> delimitan el final
+        de las opciones del comando y el inicio de los paths de archivo.</p>
       </article>
       
       <article class='fill'>
         <h3></h3>
-        <img alt="Ejemplo de un 'git push'" src='images/gitpush.png'>
-        <div class='source white'>
-            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
-
-        </div>
+        <img alt="Ejemplo de un 'git commit'" src='images/gitcommit.png'>
       </article>
 
       <article class="justify">
