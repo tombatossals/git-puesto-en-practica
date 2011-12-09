@@ -200,9 +200,9 @@ $ sudo pacman -S git
         queremos hacer efectivos en el próximo commit, es decir, una zona a
         medio camino entre el repositorio y tu directorio de trabajo.</p>
         <p>Lo utilizaremos para construir un commit que agrupe modificaciones en varios archivos.</p>
-        <p>Cuando hagamos el commit, se enviará los cambios que hayamos
+        <p>Cuando hagamos el commit, se enviarán los cambios que hayamos
         especificado en el índice, que no tiene por qué coincidir con lo que haya en nuestro directorio de trabajo.</p>
-        <hr style="margin: 1em 0;" />
+        <hr />
         <p>El comando que nos muestra la información sobre el estado del índice es <strong>git status</strong>.</p>
       </article>
       
@@ -216,20 +216,33 @@ $ sudo pacman -S git
         <hr class="title" />
         <img class="logo" src="images/snapshotting.png" />
         <p class="justify">
-        Aquí tenemos una diferencia fundamental con respecto al modo de trabajar de
-        otros SMC. Git trabaja almacenando instantáneas de todo el árbol de
-        archivos modificados entre commits. Otros sistemas de control de
+        Diferencia fundamental con respecto al modo de trabajar de
+        otros <a href="http://en.wikipedia.org/wiki/Software_configuration_management">SCM</a>. 
+        Git trabaja almacenando instantáneas de un conjunto de archivos
+        modificados (y planificados a través del índice). Otros sistemas de control de
         revisiones trabajan a nivel de archivo individual.
         </p>
-        <hr style="margin: 1em 0;" />
-        <p>En cada "pantallazo", los cambios que se mandan al repositorio son
-        los de aquellos archivos planificados en el índice.</p>
-
+        <hr />
+        <p>En cada instantánea los cambios que se mandan al repositorio al
+        hacer el commit son los de aquellos archivos planificados en el índice.</p>
+      </article>
+      
+      <article>
+        <h1 class="title">Directorio de trabajo limpio</h1>
+        <hr class="title" />
+        <img class="logo" src="../images/terminal-logo.png" />
+        <p class="justify">
+        Un directorio de trabajo limpio es aquel en el que no tenemos ningún
+        archivo modificado con respecto al último commit, ni tenemos ningún
+        archivo planificado para el próximo commit en el índice.
+        </p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git status
+# On branch master
+nothing to commit (working directory clean)</pre>
       </article>
       
       <article class='fill'>
         <h3></h3>
-        <img alt="Ejemplo de un 'git push'" src='images/gitpush.png'>
         <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
         <div class='source white'>
             <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
@@ -280,6 +293,21 @@ $ cd git-in-practice/
       </article>
       
       <article>
+        <h1 class="title">El directorio .git</h2>
+        <hr class="title" />
+        <img class="logo" src="../images/terminal-logo.png" />
+        <p class="justify">
+          Una de las cosas que más llaman la atención es lo limpio que queda todo en tu directorio de trabajo. Si al clonar un repositorio lo estamos obteniendo de manera completa...</p>
+        <ul>
+            <li>¿cómo es que lo ha obtenido tan rápido?</li>
+            <li>¿dónde está la base de datos de revisiones?</li>
+            <li>¿por qué ocupa tan poco?</li>
+        </ul>
+        <hr />
+        <p><strong>Ejercicio:</strong> Ejecuta un "find .git" en tu directorio de trabajo y echa un vistazo a la estructura de archivos que hay creada.</p>
+      </article>
+      
+      <article>
         <img class="logo" src="../images/terminal-logo.png" />
         <h2>Operaciones básicas</h2>
         <p class="justify">
@@ -302,18 +330,18 @@ $ cd git-in-practice/
         <img class="logo" src="../images/terminal-logo.png" />
         <h2>Obtención de diferencias</h2>
         <p>Tenemos tres posibles maneras de hacer un diff.</p>
-        <hr style="margin: 1em 0;"/>
+        <hr />
         <p class="justify">
           <strong>git diff</strong>. Nos muestra las diferencias de los cambios
           que todavía no hemos planificado para el próximo commit.
         </p>
-        <hr style="margin: 1em 0;"/>
+        <hr />
         <p class="justify">
           <strong>git diff --cached</strong>. Nos muestra las diferencias de
           los cambios planificados para el próximo commit con respecto al
           repositorio.
         </p>
-        <hr style="margin: 1em 0;"/>
+        <hr />
         <p class="justify">
           <strong>git diff HEAD</strong>. Compara el directorio de trabajo y el
           último commit al repositorio.
@@ -358,30 +386,47 @@ $ cat $HOME/.gitconfig
       </article>
       
       <article>
+        <h1 class="title">Enviando al repositorio local</h1>
+        <hr class="title" />
         <img class="logo" src="../images/terminal-logo.png" />
-        <h2>El directorio .git</h2>
         <p class="justify">
-          Una de las cosas que más llaman la atención es lo limpio que queda todo en tu directorio de trabajo. Si al clonar un repositorio lo estamos obteniendo de manera completa...</p>
-        <ul>
-            <li>¿cómo es que lo ha obtenido tan rápido?</li>
-            <li>¿dónde está la base de datos de revisiones?</li>
-        </ul>
+        <strong>git commit</strong>. Envía una transacción al repositorio local
+        con todos los cambios planificados en los archivos del índice. Es
+        habitual enviar un comentario con los cambios hechos en el commit.
+        </p>
+        <pre class="prettify lang-sh">$ git commit -m 'explicación de los cambios'
+[master 68aa034] explicacion de los cambios
+ 1 files changed, 2 insertions(+), 1 deletions(-)
 
-        <p><strong>Ejercicio:</strong> Ejecuta un "find .git" en tu directorio de trabajo y echa un vistazo a la estructura de archivos que hay creada.</p>
+# Se modifica el archivo de configuración global de git
+$ cat $HOME/.gitconfig 
+[user]
+    name = Peter Pan
+    email = peter.pan@nuncajamas.com
+[color]
+    ui = true
+</pre>
       </article>
       
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Ejemplo de un 'git push'" src='images/gitpush.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+
+        </div>
+      </article>
+
       <article class="justify">
         <h1 class="title">
           Acerca de esta presentación...
         </h1>
         <hr class="title" />
-        <img style="width: 120px; margin-left: 2em;" class="logo" src="../images/drupal-logo.jpg" />
-        <p style="font-size: .8em;">Esta presentación se creó para dar una charla de iniciación a <a
-            href="http://git-scm.com/">Git</a> en el <a
-            href="http://groups.drupal.org/node/188859">Grupo de usuarios
-            Drupal Castellón</a>. Estos son algunos enlaces al software/hosting utilizados para realizarla.</p>
+        <p style="font-size: .8em;">Esta presentación es una charla de iniciación a <a
+            href="http://git-scm.com/">Git</a> con la que he disfrutado como un enano
+        haciéndola/aprendiendo a hacerla. Estos son algunos enlaces al software/hosting utilizados para realizarla.</p>
 
-        <ul style="font-size: .9em;">
+        <ul style="font-size: .9em; margin-top: 1em;">
             <li><a
                 href="https://github.com/tombatossals/git-in-practice">Repositorio
                 GitHub de esta web</a>.</li>
@@ -392,6 +437,8 @@ $ cat $HOME/.gitconfig
             <li><a href="http://code.google.com/appengine/">Google AppEngine</a>. El alojamiento de las presentaciones se realiza en la infraestructura AppEngine de Google.</li>
             <li><a href="http://drydrop.binaryage.com/">DryDrop</a>.
             Automatiza la subida de contenido estático a AppEngine.</li>
+            <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> /
+            <a href="http://www.initializr.com/">Initializr 2</a>.</li>
         </ul>
       </article>
       
@@ -403,6 +450,7 @@ $ cat $HOME/.gitconfig
         <p style="font-size: .8em;">Enlaces de la documentación escrita utilizada para realizar la
         presentación, además de la propia experiencia personal.</p>
 
+        <img class="logo" style="width: 320px;" src="../images/markers.jpg" />
         <ul style="font-size: .9em;">
             <li><a href="http://gitref.org">http://gitref.org</a>.</li>
             <li><a href="http://progit.org">http://progit.org</a>.</li>
@@ -410,7 +458,6 @@ $ cat $HOME/.gitconfig
             <li><a href="http://book.git-scm.com/">http://book.git-scm.com</a>.</li>
             <li><a href="http://git.or.cz/">http://git.or.cz</a>.</li>
         </ul>
-        <img class="logo" style="width: 320px;" src="../images/markers.jpg" />
       </article>
       
     </section>

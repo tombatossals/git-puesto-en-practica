@@ -766,3 +766,7 @@ article h2, article h3 {
     text-decoration: none;
 }
 
+hr {
+    margin: 1em 0;
+}
+
