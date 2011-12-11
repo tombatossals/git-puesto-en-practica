@@ -222,8 +222,8 @@ h1#title {
     font-weight: normal;
     font-size: 2.4em;
     letter-spacing: -0.15em;
-    color: #888;
-    border-bottom: 1px solid #EEE;
+    color: #a83305;
+    border-bottom: 4px solid #2d6ea7;
 }
 
 h1#title > span.git {
@@ -234,22 +234,35 @@ h1#title > span.git {
 article > ul {
     font-size: 2.5em;
     list-style: none;
-    padding: 2em;
+    padding: 0em;
+    width: 60%;
+}
+
+article > ul > li {
+    margin: 1em 0;
 }
 
 article > ul > li > a {
     text-decoration: none;
-    padding: .5em 4em .5em 1em;
-    color: #222;
+    padding: .2em 1em;
+    color: #888;
+    width: 60%;
+    -webkit-transition-property: box-shadow;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -o-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
 }
 
 article > ul > li > a:visited {
-    color: #222;
+    color: #888;
 }
 
 article > ul > li > a:hover {
-    box-shadow: 0 0 5px 5px #888;
-    border: 1px solid #EEE;
+    box-shadow: 0 0 5px 5px #2d6ea7;
+    border: 1px solid blue;
+    color: #222;
     border-radius: 20px;
     -o-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -258,14 +271,43 @@ article > ul > li > a:hover {
 
 footer {
     position: absolute;
-    bottom: 1em;
-    right: 1em;
+    bottom: 2em;
+    right: 2em;
+    clear: both;
     font-family: 'Open Sans', Arial, sans-serif;
+    text-align: right;
 }
 
 footer a {
     text-decoration: none;
 }
+
+aside {
+    position: relative;
+    float:right;
+    height: 500px;
+    width: 40%;
+    min-width: 400px;
+    margin-bottom: 2em;
+    overflow: hidden;
+    border-radius: 40px;
+    -o-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    color: #222;
+}
+
+aside > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    opacity: .1;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+}
+
 
 /* =============================================================================
    Non-semantic helper classes
