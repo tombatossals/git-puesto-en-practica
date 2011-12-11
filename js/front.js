@@ -3,18 +3,21 @@
 
     function linkOn(e) {
         var imgs = { "first": "pacifier.png", "second": "team.jpg" };
-        var t = e.srcElement;
+        var cl = e.currentTarget.className;
         var bg = document.querySelectorAll("aside img")[0];
         bg.style.display = "inline";
-        bg.src = "images/" + imgs[t.className];
-        bg.style.opacity = "1";
+        if (bg.src != "images/" + imgs[cl]) {
+            setTimeout(function() { bg.style.opacity = "1"; bg.src = "images/" + imgs[cl]; }, 300 );
+        } else {
+            bg.style.opacity = "1";
+        }
     }
 
     function linkOff(e) {
         var imgs = { "first": "pacifier-bw.png", "second": "team-bw.jpg" };
-        var t = e.srcElement;
+        var cl = e.currentTarget.className;
         var bg = document.querySelectorAll("aside img")[0];
-        bg.src = "images/" + imgs[t.className];
+        bg.src = "images/" + imgs[cl];
         bg.style.opacity = ".2";
     }
 

@@ -244,12 +244,15 @@ article > ul > li {
 
 article > ul > li > a {
     text-decoration: none;
-    padding: .2em 1em;
+    padding: .2em .5em;
     color: #888;
     width: 60%;
     -webkit-transition-property: box-shadow;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-timing-function: ease;
+    -moz-transition-property: box-shadow;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease;
     -o-border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -290,10 +293,6 @@ aside {
     min-width: 400px;
     margin-bottom: 2em;
     overflow: hidden;
-    border-radius: 40px;
-    -o-border-radius: 40px;
-    -moz-border-radius: 40px;
-    -webkit-border-radius: 40px;
     color: #222;
 }
 
@@ -304,8 +303,11 @@ aside > img {
     width: 500px;
     opacity: .1;
     -webkit-transition-property: opacity;
-    -webkit-transition-duration: 0.3s;
+    -webkit-transition-duration: 1s;
     -webkit-transition-timing-function: ease;
+    -moz-transition-property: opacity;
+    -moz-transition-duration: 1s;
+    -moz-transition-timing-function: ease;
 }
 
 
