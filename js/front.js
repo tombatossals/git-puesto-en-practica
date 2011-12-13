@@ -2,9 +2,9 @@
     "use strict";
 
     function linkOn(e) {
-        var imgs = { "first": "pacifier.png", "second": "team.jpg" };
+        var imgs = { "first": "easy.jpg", "second": "medium.png" };
         var cl = e.currentTarget.className;
-        var bg = document.querySelectorAll("aside img")[0];
+        var bg = document.querySelectorAll("div#main > img")[0];
         bg.style.display = "inline";
         if (bg.src != "images/" + imgs[cl]) {
             setTimeout(function() { bg.style.opacity = "1"; bg.src = "images/" + imgs[cl]; }, 300 );
@@ -14,9 +14,9 @@
     }
 
     function linkOff(e) {
-        var imgs = { "first": "pacifier-bw.png", "second": "team-bw.jpg" };
+        var imgs = { "first": "easy-bw.jpg", "second": "medium-bw.png" };
         var cl = e.currentTarget.className;
-        var bg = document.querySelectorAll("aside img")[0];
+        var bg = document.querySelectorAll("div#main > img")[0];
         bg.src = "images/" + imgs[cl];
         bg.style.opacity = ".2";
     }
