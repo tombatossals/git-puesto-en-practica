@@ -467,6 +467,15 @@ article h1.title > a {
     text-decoration: none;
 }
 
+.slides > article > div.subinfo {
+    position: absolute;
+    top: 70%;
+    font-size: .6em;
+    text-align: center;
+    color: white;
+    width: 750px;
+}
+
 article.fill .source {
   font-weight: bold;
   background: #CCC;
