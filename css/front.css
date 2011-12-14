@@ -290,6 +290,12 @@ footer a {
     text-decoration: none;
 }
 
+img.forkme {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 div#main > img {
     z-index: -10;
     position: absolute;
