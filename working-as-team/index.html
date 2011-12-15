@@ -53,13 +53,104 @@
         <p class="justify">
           La programación en equipo de proyectos hoy en día es fundamental, y los beneficios
           son múltiples tanto para los desarrolladores como para el proyecto.
-          Si vamos a trabajar en un proyecto en equipo debemos saber:
+          Si vamos a trabajar en un proyecto en equipo con <strong>git</strong>
+          deberemos saber:
         </p>
         <ul>
             <li>Realizar <strong>commits</strong> "documentados" al repositorio.</p>
             <li>Trabajar con <strong>ramas</strong>.</li>
             <li>Saber lo que es el <strong>3-way merge</strong>.</li>
         </ul>
+      </article>
+
+      <article>
+        <h1 class="title">Trabajando con ramas</h1>
+        <hr class="title" />
+        <img class="logo" src="images/branch.png" />
+        <p class="justify">
+        Las ramas son bifurcaciones del proyecto, que permiten desarrollar diferentes partes de un software en paralelo. Facilitan el aislar los cambios sin afectar al resto del desarrollo, para posteriormente fusionar la rama con la <strong>upstream branch</strong> (si así lo deseamos).
+        </p>
+        <hr />
+        <p>Una rama nueva se crea con <strong>git branch &lt;nombre&gt;</strong>, cambiaremos al contexto de una rama con el comando <strong>git checkout &lt;nombre&gt;</strong>, y fusionaremos ramas con <strong>git merge</strong>. Veamos en detalle cada comando.</p>
+      </article>
+      
+      <article>
+        <h1 class="title">git branch</h1>
+        <hr class="title" />
+        <p class="justify">
+        Para listar las ramas creadas en el repositorio:
+        </p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+* master</pre>
+        <p>La rama principal que siempre tendremos creada se denomina
+        <strong>master</strong>.</p>
+        <hr />
+        <p>Creamos una rama nueva con el siguiente comando:</p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch testing
+[~/git-in-practice]$ git branch
+* master
+  testing</pre>
+
+      </article>
+      
+      <article>
+        <h1 class="title">git branch</h1>
+        <hr class="title" />
+        <p class="justify">
+        Finalmente, borramos una rama con el siguiente comando:
+        </p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+* master
+  testing
+[~/git-in-practice]$ git branch -d testing
+[~/git-in-practice]$ git branch
+* master</pre>
+       <p>
+      </article>
+      
+      <article>
+        <h1 class="title">git checkout &lt;branch&gt;</h1>
+        <hr class="title" />
+        <p class="justify">
+        Este comando lo utilizamos para cambiar el contexto y comenzar a
+        trabajar con otra rama:
+        </p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+* master
+  devel
+
+[~/git-in-practice$ ls
+a.txt
+
+[~/git-in-practice$ git checkout devel
+Switched to branch 'devel'
+
+[~/git-in-practice$ git branch
+  master
+* devel
+
+[~/git-in-practice$ ls
+a.txt  b.txt
+</pre>
+      </article>
+      
+      <article>
+        <h1 class="title">git merge &lt;branch&gt;</h1>
+        <hr class="title" />
+        <p class="justify">
+        Si queremos fusionar una rama concreta con la rama con la que
+        actualmente estamos trabajando, utilizaremos este comando:
+        </p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+* master
+  devel
+[~/git-in-practice$ git merge devel
+Updating 211141d..26b8cd6
+Fast-forward
+ b.txt |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 b.txt
+</pre>
       </article>
       
       <article class='fill'>

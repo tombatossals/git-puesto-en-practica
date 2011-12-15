@@ -210,12 +210,26 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 html {
     overflow: hidden;
+    height: 60%;
 }
 
 body {
-    padding: 3em;
+    background: #EEE;
+    height: 100%;
+    position: relative;
     font-family: 'Holtwood One SC', Arial;
     min-width: 960px;
+    width: 960px;
+    margin: auto;
+}
+
+div#wrapper {
+    border: 2px solid #CCC;
+    padding: 1em 3em 0em;
+    height: 100%;
+    margin-top: 2em;
+    background: white;
+    box-shadow: 10px 10px 10px #888;
 }
 
 h1#title {
@@ -238,7 +252,7 @@ div#main {
 article > ul {
     font-size: 2.0em;
     list-style: none;
-    padding: 0em;
+    padding: 1em;
     margin-top: 0;
     margin-bottom: 2em;
 }
