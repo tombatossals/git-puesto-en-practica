@@ -215,16 +215,13 @@ html {
 
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-family:Verdana,Geneva,sans-serif;
+    font-family: Verdana,Geneva,sans-serif;
     height: 100%;
+    font-size: 1em;
     position: relative;
     min-width: 960px;
     width: 960px;
     margin: auto;
-    background: white;
-    background: -webkit-linear-gradient( top, white, lightblue);
-    background: -moz-linear-gradient( top, white, white, lightblue);
-    -webkit-background-size: 10% 100%;
 }
 
 div#wrapper {
@@ -244,13 +241,13 @@ a.small {
 }
 
 h1#title {
-    margin: 0;
     font-family: 'Holtwood One SC', Arial;
     font-weight: normal;
-    font-size: 2em;
+    font-size: 1.5em;
     letter-spacing: -0.15em;
     color: #a83305;
     border-bottom: 4px solid #2d6ea7;
+    margin-bottom: 2em;
 }
 
 h1#title > span.git {
@@ -264,7 +261,7 @@ div#main {
 
 article > ol {
     color: #444;
-    font-size: 1.2em;
+    font-size: 1.5em;
     padding: 1em;
     margin: 0 2em 2em;
 }
@@ -295,9 +292,6 @@ article > ol > li > a.slides:hover {
 }
 
 footer {
-    position: absolute;
-    bottom: 2em;
-    right: 2em;
     clear: both;
     font-family: 'Open Sans', Arial, sans-serif;
     text-align: right;

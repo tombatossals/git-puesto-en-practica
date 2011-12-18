@@ -1,0 +1,525 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>/tmp/git/da2.txt.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v10">
+<meta name="syntax" content="git">
+<meta name="settings" content="use_css,pre_wrap,expand_tabs">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #ffffff; background-color: #000000; }
+body { font-family: monospace; color: #ffffff; background-color: #000000; }
+.Special { color: #ff6060; font-weight: bold; }
+.Constant { color: #ff40ff; font-weight: bold; }
+.Identifier { color: #00ffff; font-weight: bold; }
+.Statement { color: #ffff00; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="Statement">commit</span> <span class="Identifier">d16520499d2652b5b59dfb25f9cf2d56a4c6913a</span>
+<span class="Statement">Author:</span> <span class="Constant">Pete Wyckoff </span><span class="Special">&lt;</span><span class="Special">pw@padd.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Sat Dec 17 12:39:03 2011 -0500</span>
+
+    git-p4: fix skipSubmitEdit regression
+
+    Commit 7c766e5 (git-p4: introduce skipSubmitEdit, 2011-12-04)
+    made it easier to automate submission to p4, but broke the most
+    common case.
+
+    Add a test for when the user really does edit and save the change
+    template, and fix the bug that causes the test to fail.
+
+    Also add a confirmation message when submission is cancelled.
+
+    Reported-by: Michael Horowitz &lt;michael.horowitz@ieee.org&gt;
+    Signed-off-by: Pete Wyckoff &lt;pw@padd.com&gt;
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">ee228024933069b93ce23a1bd5eeb7ae12c792f2</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:45:03 2011 -0800</span>
+
+    Update draft release notes to 1.7.9
+
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">a2add8570c90e14e8e0cedae935091f100c758dc</span>
+<span class="Statement">Merge:</span> <span class="Identifier">48b3036</span> <span class="Identifier">bc82189</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:33:56 2011 -0800</span>
+
+    Merge branch 'jc/commit-amend-no-edit'
+
+    * jc/commit-amend-no-edit:
+      test: commit --amend should honor --no-edit
+      commit: honour --no-edit
+      t7501 (commit): modernize style
+      test: remove a porcelain test that hard-codes commit names
+      test: add missing &quot;&amp;&amp;&quot; after echo command
+
+<span class="Statement">commit</span> <span class="Identifier">48b303675aa238c209e527feadcbb7ba1c025c97</span>
+<span class="Statement">Merge:</span> <span class="Identifier">e45c9b0</span> <span class="Identifier">568508e</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:33:40 2011 -0800</span>
+
+    Merge branch 'jc/stream-to-pack'
+
+    * jc/stream-to-pack:
+      bulk-checkin: replace fast-import based implementation
+      csum-file: introduce sha1file_checkpoint
+      finish_tmp_packfile(): a helper function
+      create_tmp_packfile(): a helper function
+      write_pack_header(): a helper function
+
+    Conflicts:
+        pack.h
+
+<span class="Statement">commit</span> <span class="Identifier">e45c9b03c32620c444f464403c23534160998624</span>
+<span class="Statement">Merge:</span> <span class="Identifier">e9bba53</span> <span class="Identifier">0becb3e</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:33:37 2011 -0800</span>
+
+    Merge branch 'aw/rebase-i-stop-on-failure-to-amend'
+
+    * aw/rebase-i-stop-on-failure-to-amend:
+      rebase -i: interrupt rebase when &quot;commit --amend&quot; failed during &quot;reword&quot;
+
+<span class="Statement">commit</span> <span class="Identifier">e9bba5340e1ba370bb2f64a514c87fdaf417d6d7</span>
+<span class="Statement">Merge:</span> <span class="Identifier">0bbaa5c</span> <span class="Identifier">1838685</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:33:34 2011 -0800</span>
+
+    Merge branch 'jh/fast-import-notes'
+
+    * jh/fast-import-notes:
+      fast-import: Fix incorrect fanout level when modifying existing notes refs
+      t9301: Add 2nd testcase exposing bugs in fast-import's notes fanout handling
+      t9301: Fix testcase covering up a bug in fast-import's notes fanout handling
+
+<span class="Statement">commit</span> <span class="Identifier">0bbaa5c076f51a0eb3ab4f53bbc5a32ce66cf954</span>
+<span class="Statement">Merge:</span> <span class="Identifier">09bb4eb</span> <span class="Identifier">1bc01ef</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:33:30 2011 -0800</span>
+
+    Merge branch 'jk/upload-archive-use-start-command'
+
+    * jk/upload-archive-use-start-command:
+      upload-archive: use start_command instead of fork
+
+<span class="Statement">commit</span> <span class="Identifier">09bb4eb4f14c0b92baa649b2b97cda2390b84b84</span>
+<span class="Statement">Merge:</span> <span class="Identifier">10f4eb6</span> <span class="Identifier">811c70f</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 16 22:18:42 2011 -0800</span>
+
+    Merge git://ozlabs.org/~paulus/gitk
+
+    * git://ozlabs.org/~paulus/gitk:
+      gitk: Make vi-style keybindings more vi-like
+      gitk: Make &quot;touching paths&quot; search support backslashes
+      gitk: Show modified files with separate work tree
+      gitk: Simplify calculation of gitdir
+      gitk: Run 'git rev-parse --git-dir' only once
+      gitk: Put temporary directory inside .git
+      gitk: Fix &quot;External diff&quot; with separate work tree
+      gitk: Fix &quot;blame parent commit&quot; with separate work tree
+      gitk: Fix &quot;show origin of this line&quot; with separate work tree
+      gitk: Fix file highlight when run in subdirectory
+      gitk: Update copyright
+      gitk: When a commit contains a note, mark it with a yellow box
+      gitk: Remember time zones from author and commit timestamps
+      gitk: Remove unused $cdate array
+
+<span class="Statement">commit</span> <span class="Identifier">10f4eb652ee4e592f91f638e579d1afcb96c0408</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 23:09:27 2011 -0800</span>
+
+    Update draft release notes to 1.7.9
+
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">b3f17ac3d6609c1ccede32ef783d4f2e92e7eba6</span>
+<span class="Statement">Merge:</span> <span class="Identifier">91c23f7</span> <span class="Identifier">d3e0598</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 23:03:00 2011 -0800</span>
+
+    Merge branch 'ks/tag-cleanup'
+
+    * ks/tag-cleanup:
+      git-tag: introduce --cleanup option
+
+    Conflicts:
+        builtin/tag.c
+
+<span class="Statement">commit</span> <span class="Identifier">91c23f76cec4a4ec9b9143b7ebb31e639856ed16</span>
+<span class="Statement">Merge:</span> <span class="Identifier">357ba5c</span> <span class="Identifier">6a5ceda</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 23:00:52 2011 -0800</span>
+
+    Merge branch 'jl/submodule-status-failure-report'
+
+    * jl/submodule-status-failure-report:
+      diff/status: print submodule path when looking for changes fails
+
+<span class="Statement">commit</span> <span class="Identifier">357ba5cf0d4c77c6b4ad8d2cc604392687a3e2a6</span>
+<span class="Statement">Merge:</span> <span class="Identifier">b661a4b</span> <span class="Identifier">37e7793</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:57:19 2011 -0800</span>
+
+    Merge branch 'tr/userdiff-c-returns-pointer'
+
+    * tr/userdiff-c-returns-pointer:
+      userdiff: allow * between cpp funcname words
+
+<span class="Statement">commit</span> <span class="Identifier">b661a4bc1e172a9c67bf62bdc2715bd4efbc16e5</span>
+<span class="Statement">Merge:</span> <span class="Identifier">424f30a</span> <span class="Identifier">cc64b31</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:56:22 2011 -0800</span>
+
+    Merge branch 'bc/maint-apply-check-no-patch'
+
+    * bc/maint-apply-check-no-patch:
+      builtin/apply.c: report error on failure to recognize input
+      t/t4131-apply-fake-ancestor.sh: fix broken test
+
+<span class="Statement">commit</span> <span class="Identifier">424f30a5ae3ff26fca14df71cce31b06d1dec919</span>
+<span class="Statement">Merge:</span> <span class="Identifier">b2dd021</span> <span class="Identifier">c1d7036</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:55:07 2011 -0800</span>
+
+    Merge branch 'nd/ignore-might-be-precious'
+
+    * nd/ignore-might-be-precious:
+      checkout,merge: disallow overwriting ignored files with --no-overwrite-ignore
+
+<span class="Statement">commit</span> <span class="Identifier">b2dd02112052aff875e8dc7d12b9915c91feafe2</span>
+<span class="Statement">Merge:</span> <span class="Identifier">a96a89f</span> <span class="Identifier">39bd6f7</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:53:08 2011 -0800</span>
+
+    Merge branch 'jn/branch-move-to-self'
+
+    * jn/branch-move-to-self:
+      Allow checkout -B &lt;current-branch&gt; to update the current branch
+      branch: allow a no-op &quot;branch -M &lt;current-branch&gt; HEAD&quot;
+
+<span class="Statement">commit</span> <span class="Identifier">a96a89f7153150c7e59d5481dd22773173b5a877</span>
+<span class="Statement">Merge:</span> <span class="Identifier">5c36594</span> <span class="Identifier">284e3d2</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:49:45 2011 -0800</span>
+
+    Merge branch 'cn/maint-lf-to-crlf-filter'
+
+    * cn/maint-lf-to-crlf-filter:
+      convert: track state in LF-to-CRLF filter
+
+<span class="Statement">commit</span> <span class="Identifier">5c3659432da19098261737d69b7979336d5d0159</span>
+<span class="Statement">Merge:</span> <span class="Identifier">3c4b5ad</span> <span class="Identifier">3686aa1</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:49:19 2011 -0800</span>
+
+    Merge branch 'tj/maint-imap-send-remove-unused'
+
+    * tj/maint-imap-send-remove-unused:
+      imap-send: Remove unused 'use_namespace' variable
+
+<span class="Statement">commit</span> <span class="Identifier">3c4b5ad5a5d4356948f1207908bd3ba62b1a7773</span>
+<span class="Statement">Merge:</span> <span class="Identifier">6fa625a</span> <span class="Identifier">7b51c33</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:47:38 2011 -0800</span>
+
+    Merge branch 'jk/maint-upload-archive'
+
+    * jk/maint-upload-archive:
+      archive: don't let remote clients get unreachable commits
+
+<span class="Statement">commit</span> <span class="Identifier">6fa625a6b757b6aaaf4aaca64a5bd8c038cfb1e8</span>
+<span class="Statement">Merge:</span> <span class="Identifier">9e6324c</span> <span class="Identifier">6ae683c</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:46:57 2011 -0800</span>
+
+    Merge branch 'jn/gitweb-side-by-side-diff'
+
+    * jn/gitweb-side-by-side-diff:
+      gitweb: Add navigation to select side-by-side diff
+      gitweb: Use href(-replay=&gt;1,...) for formats links in &quot;commitdiff&quot;
+      t9500: Add basic sanity tests for side-by-side diff in gitweb
+      t9500: Add test for handling incomplete lines in diff by gitweb
+      gitweb: Give side-by-side diff extra CSS styling
+      gitweb: Add a feature to show side-by-side diff
+      gitweb: Extract formatting of diff chunk header
+      gitweb: Refactor diff body line classification
+
+<span class="Statement">commit</span> <span class="Identifier">9e6324c4d784c36d2558ccdea7c8470ac2701437</span>
+<span class="Statement">Merge:</span> <span class="Identifier">73c6b35</span> <span class="Identifier">7b6c583</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:18:00 2011 -0800</span>
+
+    Merge branch 'maint'
+
+    * maint:
+      Update draft release notes for 1.7.8.1
+      Git 1.7.7.5
+      Git 1.7.6.5
+      blame: don't overflow time buffer
+      fetch: create status table using strbuf
+
+    Conflicts:
+        RelNotes
+
+<span class="Statement">commit</span> <span class="Identifier">7b6c5836cf02999955b68c79f1cf2d13040acbc3</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:08:52 2011 -0800</span>
+
+    Update draft release notes for 1.7.8.1
+
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">2e8722fc9e34a53ae19f2b60b1d3038aa2af0ae6</span>
+<span class="Statement">Merge:</span> <span class="Identifier">68f80f5</span> <span class="Identifier">f63c79d</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:04:50 2011 -0800</span>
+
+    Merge branch 'jc/maint-pack-object-cycle' into maint
+
+    * jc/maint-pack-object-cycle:
+      pack-object: tolerate broken packs that have duplicated objects
+
+    Conflicts:
+        builtin/pack-objects.c
+
+<span class="Statement">commit</span> <span class="Identifier">68f80f549092bcbb2409ba9c0eace73c085ba7cc</span>
+<span class="Statement">Merge:</span> <span class="Identifier">fc54543</span> <span class="Identifier">68be2fe</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:03:36 2011 -0800</span>
+
+    Merge branch 'jc/index-pack-reject-dups' into maint
+
+    * jc/index-pack-reject-dups:
+      receive-pack, fetch-pack: reject bogus pack that records objects twice
+
+<span class="Statement">commit</span> <span class="Identifier">fc545433bdab7ec17e6609d2249771d407370a4d</span>
+<span class="Statement">Merge:</span> <span class="Identifier">df6246e</span> <span class="Identifier">093c44a</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:03:17 2011 -0800</span>
+
+    Merge branch 'mf/curl-select-fdset' into maint
+
+    * mf/curl-select-fdset:
+      http: drop &quot;local&quot; member from request struct
+      http.c: Rely on select instead of tracking whether data was received
+      http.c: Use timeout suggested by curl instead of fixed 50ms timeout
+      http.c: Use curl_multi_fdset to select on curl fds instead of just sleeping
+
+<span class="Statement">commit</span> <span class="Identifier">df6246ed78d040f06f095dd62d8db07a0aa19a96</span>
+<span class="Statement">Merge:</span> <span class="Identifier">8311158</span> <span class="Identifier">ea4f968</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 22:02:51 2011 -0800</span>
+
+    Merge branch 'nd/misc-cleanups' into maint
+
+    * nd/misc-cleanups:
+      unpack_object_header_buffer(): clear the size field upon error
+      tree_entry_interesting: make use of local pointer &quot;item&quot;
+      tree_entry_interesting(): give meaningful names to return values
+      read_directory_recursive: reduce one indentation level
+      get_tree_entry(): do not call find_tree_entry() on an empty tree
+      tree-walk.c: do not leak internal structure in tree_entry_len()
+
+<span class="Statement">commit</span> <span class="Identifier">8311158c66e0d83df950ea837fb1cb332c51f798</span>
+<span class="Statement">Merge:</span> <span class="Identifier">10dd3b2</span> <span class="Identifier">66c11f0</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:58:51 2011 -0800</span>
+
+    Merge branch 'maint-1.7.7' into maint
+
+    * maint-1.7.7:
+      Git 1.7.7.5
+      Git 1.7.6.5
+      blame: don't overflow time buffer
+      fetch: create status table using strbuf
+      checkout,merge: loosen overwriting untracked file check based on info/exclude
+      cast variable in call to free() in builtin/diff.c and submodule.c
+      apply: get rid of useless x &lt; 0 comparison on a size_t type
+
+    Conflicts:
+        Documentation/git.txt
+        GIT-VERSION-GEN
+        RelNotes
+        builtin/fetch.c
+
+<span class="Statement">commit</span> <span class="Identifier">66c11f02b031aca6f1756086fefdf4b8a5575c56</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:55:31 2011 -0800</span>
+
+    Git 1.7.7.5
+
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">c0eb9ccfb97297e25ccbab0481159282147b353f</span>
+<span class="Statement">Merge:</span> <span class="Identifier">3b42565</span> <span class="Identifier">83838d5</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:47:51 2011 -0800</span>
+
+    Merge branch 'ab/clang-lints' into maint-1.7.7
+
+    * ab/clang-lints:
+      cast variable in call to free() in builtin/diff.c and submodule.c
+      apply: get rid of useless x &lt; 0 comparison on a size_t type
+
+<span class="Statement">commit</span> <span class="Identifier">3b425656a469722d9c45b7c88e0e01a9cd8c0fd3</span>
+<span class="Statement">Merge:</span> <span class="Identifier">7857e32</span> <span class="Identifier">fc001b5</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:47:08 2011 -0800</span>
+
+    Merge branch 'nd/maint-ignore-exclude' into maint-1.7.7
+
+    * nd/maint-ignore-exclude:
+      checkout,merge: loosen overwriting untracked file check based on info/exclude
+
+<span class="Statement">commit</span> <span class="Identifier">7857e3246fef2fdfa3c0fc645cd3d72ff3e6572b</span>
+<span class="Statement">Merge:</span> <span class="Identifier">7919704</span> <span class="Identifier">15b7898</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:44:56 2011 -0800</span>
+
+    Merge branch 'maint-1.7.6' into maint-1.7.7
+
+    * maint-1.7.6:
+      Git 1.7.6.5
+      blame: don't overflow time buffer
+      fetch: create status table using strbuf
+
+    Conflicts:
+        Documentation/git.txt
+        GIT-VERSION-GEN
+        RelNotes
+
+<span class="Statement">commit</span> <span class="Identifier">15b7898c5e9fc6fed9a6064213cfcd08cf7d7314</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:30:40 2011 -0800</span>
+
+    Git 1.7.6.5
+
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">52b195f2b8e0d8c9d4583aab44846698ed3149f2</span>
+<span class="Statement">Merge:</span> <span class="Identifier">43176d1</span> <span class="Identifier">5914f2d</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:21:30 2011 -0800</span>
+
+    Merge branch 'jk/maint-fetch-status-table' into maint-1.7.6
+
+    * jk/maint-fetch-status-table:
+      fetch: create status table using strbuf
+
+<span class="Statement">commit</span> <span class="Identifier">43176d1e4cddc4ab2f2f7dc6f3ba10513ffc2f2b</span>
+<span class="Statement">Merge:</span> <span class="Identifier">6d1cdad</span> <span class="Identifier">e8b14d7</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:12:34 2011 -0800</span>
+
+    Merge branch 'jc/maint-name-rev-all' into maint-1.7.6
+
+    * jc/maint-name-rev-all:
+      name-rev --all: do not even attempt to describe non-commit object
+
+<span class="Statement">commit</span> <span class="Identifier">6d1cdadbeeb03f40250526e29b1f1a91582911d8</span>
+<span class="Statement">Merge:</span> <span class="Identifier">c3ea051</span> <span class="Identifier">74b531f</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 21:12:14 2011 -0800</span>
+
+    Merge branch 'ml/mailmap' into maint-1.7.6
+
+    * ml/mailmap:
+      mailmap: xcalloc mailmap_info
+
+    Conflicts:
+        mailmap.c
+
+<span class="Statement">commit</span> <span class="Identifier">c3ea051544cb1d98a5ae7f64d077084a9a5db5c1</span>
+<span class="Statement">Author:</span> <span class="Constant">Jeff King </span><span class="Special">&lt;</span><span class="Special">peff@peff.net</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Thu Dec 8 05:25:54 2011 -0500</span>
+
+    blame: don't overflow time buffer
+
+    When showing the raw timestamp, we format the numeric
+    seconds-since-epoch into a buffer, followed by the timezone
+    string. This string has come straight from the commit
+    object. A well-formed object should have a timezone string
+    of only a few bytes, but we could be operating on data
+    pushed by a malicious user.
+
+    Signed-off-by: Jeff King &lt;peff@peff.net&gt;
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">73c6b3575bc638b7096ec913bd91193707e2265d</span>
+<span class="Statement">Merge:</span> <span class="Identifier">57526fd</span> <span class="Identifier">942e6ba</span>
+<span class="Statement">Author:</span> <span class="Constant">Junio C Hamano </span><span class="Special">&lt;</span><span class="Special">gitster@pobox.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 16:48:24 2011 -0800</span>
+
+    Merge branch 'master' of git://repo.or.cz/git-gui
+
+    * 'master' of git://repo.or.cz/git-gui: (28 commits)
+      git-gui 0.16
+      git-gui: handle shell script text filters when loading for blame.
+      git-gui: Set both 16x16 and 32x32 icons on X to pacify Xming.
+      git-gui: added config gui.gcwarning to disable the gc hint message
+      git-gui: set whitespace warnings appropriate to this project
+      git-gui: don't warn for detached head when rebasing
+      git-gui: make config gui.warndetachedcommit a boolean
+      git-gui: add config value gui.diffopts for passing additional diff options
+      git-gui: sort the numeric ansi codes
+      git-gui: support underline style when parsing diff output
+      git-gui: fix spelling error in sshkey.tcl
+      git-gui: include the file path in guitools confirmation dialog
+      git-gui: span widgets over the full file output area in the blame view
+      git-gui: use a tristate to control the case mode in the searchbar
+      git-gui: set suitable extended window manager hints.
+      git-gui: fix display of path in browser title
+      git-gui: enable the smart case sensitive search only if gui.search.smartcase is true
+      git-gui: catch invalid or complete regular expressions and treat as no match.
+      git-gui: theme the search and line-number entry fields on blame screen
+      git-gui: include the number of untracked files to stage when asking the user
+      ...
+
+<span class="Statement">commit</span> <span class="Identifier">942e6baa92846e5628752c65a22bc4957d8de4d0</span>
+<span class="Statement">Author:</span> <span class="Constant">Pat Thoyts </span><span class="Special">&lt;</span><span class="Special">patthoyts@users.sourceforge.net</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Tue Dec 13 23:44:30 2011 +0000</span>
+
+    git-gui 0.16
+
+    Signed-off-by: Pat Thoyts &lt;patthoyts@users.sourceforge.net&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">57526fde5df201a99afa6d122c3266b3a1c5673a</span>
+<span class="Statement">Author:</span> <span class="Constant">Pete Wyckoff </span><span class="Special">&lt;</span><span class="Special">pw@padd.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 9 18:48:17 2011 -0500</span>
+
+    git-p4: test for absolute PWD problem
+
+    Signed-off-by: Pete Wyckoff &lt;pw@padd.com&gt;
+    Signed-off-by: Junio C Hamano &lt;gitster@pobox.com&gt;
+
+<span class="Statement">commit</span> <span class="Identifier">bf1d68ff4c86f6d6fb3214ae9b0dc9c7ac0ff781</span>
+<span class="Statement">Author:</span> <span class="Constant">Gary Gibbons </span><span class="Special">&lt;</span><span class="Special">ggibbons@perforce.com</span><span class="Special">&gt;</span>
+<span class="Statement">Date:</span>   <span class="Constant">Fri Dec 9 18:48:16 2011 -0500</span>
+
+    git-p4: use absolute directory for PWD env var
+
+    P4 only looks at the environment variable $PWD to figure out
+    where it is, so chdir() has code to set that every time.  But
+    when the clone --destination is not an absolute path, PWD will
+    not be absolute and P4 won't be able to find any files expected
+    to be in the current directory.  Fix this by expanding PWD to
+    an absolute path.
+
+    One place this crops up is when using a P4CONFIG environment
+    variable to specify P4 parameters, such as P4USER or P4PORT.
+    Setting P4CONFIG=.p4config works for p4 invocations from the
+    current directory.  But if the value of PWD is not absolute, it
+    fails.
+
+</pre>
+</body>
+</html>

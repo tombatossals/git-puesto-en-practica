@@ -12,42 +12,36 @@
     práctica sobre el uso de Git en un proyecto de software."
 	<meta name="author" content="David Rubert">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" href="css/front.css">
+	<link rel="stylesheet" href="../../css/practice.css">
+	<link rel="stylesheet" href="../../css/prettify.css">
 
-    <!--<script src="js/front.js"></script>-->
+    <script src="../../js/prettify.js"></script>
 </head>
 
-<body>
-  <div id="wrapper">
-    <a href="https://github.com/tombatossals/git-in-practice"><img class="forkme" src="images/forkme.png" /></a>
+<body onload="prettyPrint()">
 	<div id="header-container">
-		<header class="wrapper">
-            <h1 id="title"><span class="git">Git</span> in practice</h1>
+        <header class="wrapper">
+            <a style="float: right;" href="../../"><img style="width: 96px;" src="../../images/home-icon.png" /></a>
+            <h1 id="title"><span class="git">Práctica</span> Primeros pasos</h1>
 		</header>
 	</div>
     <div id="main" class="wrapper">
         <article>
-            <ol class="nav">
-                <li>
-                    Introducción y primeros pasos
-                    <ul>
-                        <li><a href="first-steps/">Presentación</a></li>
-                        <li><a href="first-steps/practice/">Práctica</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Trabajando en equipo
-                    <ul>
-                        <li><a href="working-as-team/">Presentación</a></li>
-                        <li><a href="working-as-team/practice/">Práctica</a></li>
-                    </ul>
-                </li>
-            </ol>
+        <p>Veamos como crear un repositorio <strong>git</strong> para trabajar con nuestros archivos de código
+        fuente, y las operaciones básicas de las que disponemos para interactuar con el repositorio.</p>
+        <h2>Inicializar un repositorio</h2>
+        <pre class="prettyprint lang-sh linenums"># Creamos un directorio y un archivo
+mkdir helloworld
+cd hellworld
+echo "Hello World" > README
+
+# Inicializamos el repositorio
+git init
+Initialized empty Git repository in /home/dave/helloworld/.git/
+</pre>
 		</article>
     </div>
     
-  </div>
-
 <!--[if lt IE 7 ]>
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
 	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>

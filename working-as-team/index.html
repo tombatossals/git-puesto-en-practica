@@ -59,16 +59,104 @@
         <ul>
             <li>Realizar <strong>commits</strong> "documentados" al repositorio.</p>
             <li>Trabajar con <strong>ramas</strong>.</li>
+            <li>Subir/descargar cambios de repositorios padre.</li>
             <li>Saber lo que es el <strong>3-way merge</strong>.</li>
         </ul>
       </article>
 
       <article>
+        <h1 class="title">Commits documentados</h1>
+        <hr class="title" />
+        <img class="logo" src="images/rocket.jpg" />
+        <p class="justify">
+        Cada <strong>commit</strong> al repositorio debe estar bien
+        documentado, es una recomendación de buenas prácticas de desarrollo a
+        la que si nos acostumbramos ayudaremos mucho a la evolución de los
+        proyectos en los que participemos.
+        </p>
+        <hr />
+        <p>Los <strong>commits</strong> que realizamos en principio se
+        almacenan únicamente en nuestro repositorio, pero trabajando en equipo
+        lo normal es mandarlos a un repositorio padre en el que participan varias
+        personas.</p>
+      </article>
+      
+      <article>
+        <h2>Commit roñoso</h2>
+        <img class="logo" src="images/error.jpg" />
+        <p class="justify">
+        Veamos un ejemplo de un <strong>commit</strong> mal documentado. Puede
+        que nuestras modificaciones sean perfectas, pero el comentario asociado
+        al <strong>commit</strong> debe acompañarlas. Ejemplo:</p>
+        <img style="width: 780px; margin-top: .5em;" src="images/badcommit.png" />
+      </article>
+      
+      <article>
+        <h2>Commit con sustancia</h2>
+        <img class="logo" src="images/thumbsup.png" />
+        <p class="justify">
+        Veamos un ejemplo de un <strong>commit</strong> bien documentado. La
+        primera línea debe ser un resumen de todos los cambios. En las líneas
+        siguientes podemos explicarlo con detalle, separando los párrafos
+        adecuadamente.</p>
+        <img style="width: 780px; margin-top: .5em;" src="images/goodcommit.png" />
+      </article>
+     
+      <article>
+        <h1 class="title">git log</h1>
+        <hr class="title" />
+        <img class="logo" src="images/log.png" />
+        <p class="justify">
+        Necesitamos una herramienta con la que poder examinar cuáles han sido
+        los últimos <strong>commits</strong> al repositorio. Al trabajar en
+        equipo los cambios que hacen los compañeros pueden afectar a nuestro
+        desarrollo. <strong>git log</strong> es la utilidad que necesitamos
+        para ello.
+        </p>
+        <hr />
+        <p>Veamos algunos ejemplos, aunque <strong>git log</strong> es muy
+        potente y nos permite parametrizar la consulta en función de lo que
+        queramos obtener, el uso más común es el que vamos a ver en las
+        próximas pantallas.
+        </p>
+      </article>
+      
+      <article>
+        <h1 class="title">git log --oneline</h1>
+        <hr class="title" />
+        <p>Si ejecutamos este comando dentro de un directorio de trabajo
+        veremos un resumen de los últimos commits al repositorio. Muy útil para
+        echar un vistazo rápido a las últimas modificaciones.</p>
+        <iframe style="position: normal; height: 350px; width: 780px;
+        margin-top: 1em;" src="gitlogoneline.txt">
+        </iframe>
+      </article>
+ 
+      <article>
+        <h1 class="title">git log</h1>
+        <hr class="title" />
+        <p>Veamos el resultado de ejecutar un <strong>git log</strong> sin
+        parámetros dentro de un directorio de trabajo clonado del propio
+        repositorio del código fuente de <strong>git</strong>.</p>
+        <iframe style="position: normal; height: 400px; width: 780px;
+        margin-top: 1em;" src="gitlog.html">
+        </iframe>
+      </article>
+ 
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Atención: necesito vuestra concentración" src='../images/attention.gif'>
+      </article>
+ 
+      <article>
         <h1 class="title">Trabajando con ramas</h1>
         <hr class="title" />
         <img class="logo" src="images/branch.png" />
         <p class="justify">
-        Las ramas son bifurcaciones del proyecto, que permiten desarrollar diferentes partes de un software en paralelo. Facilitan el aislar los cambios sin afectar al resto del desarrollo, para posteriormente fusionar la rama con la <strong>upstream branch</strong> (si así lo deseamos).
+        Las ramas son bifurcaciones del proyecto, que permiten desarrollar
+        diferentes partes de un software en paralelo. Facilitan el aislar los
+        cambios sin afectar al resto del desarrollo, para posteriormente
+        fusionar la rama con la <strong>master branch</strong> (si así lo deseamos).
         </p>
         <hr />
         <p>Una rama nueva se crea con <strong>git branch &lt;nombre&gt;</strong>, cambiaremos al contexto de una rama con el comando <strong>git checkout &lt;nombre&gt;</strong>, y fusionaremos ramas con <strong>git merge</strong>. Veamos en detalle cada comando.</p>
@@ -94,10 +182,9 @@
       </article>
       
       <article>
-        <h1 class="title">git branch</h1>
-        <hr class="title" />
         <p class="justify">
-        Finalmente, borramos una rama con el siguiente comando:
+        Finalmente, borramos una rama utilizando el parámetro
+        <strong>-d</strong>.
         </p>
         <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
 * master
@@ -105,15 +192,18 @@
 [~/git-in-practice]$ git branch -d testing
 [~/git-in-practice]$ git branch
 * master</pre>
-       <p>
+       <hr />
+       <p>La facilidad de uso de las ramas nos permite bifurcar una versión
+       concreta del proyecto para empezar a trabajar en una nueva
+       característica, o un bug que haya que solucionar.</p>
       </article>
       
       <article>
         <h1 class="title">git checkout &lt;branch&gt;</h1>
         <hr class="title" />
         <p class="justify">
-        Este comando lo utilizamos para cambiar el contexto y comenzar a
-        trabajar con otra rama:
+        Podemos cambiar el contexto y comenzar a trabajar con otra rama
+        mediante el comando <strong>checkout</strong>.
         </p>
         <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
 * master
@@ -138,8 +228,8 @@ a.txt  b.txt
         <h1 class="title">git merge &lt;branch&gt;</h1>
         <hr class="title" />
         <p class="justify">
-        Si queremos fusionar una rama concreta con la rama con la que
-        actualmente estamos trabajando, utilizaremos este comando:
+        Si queremos fusionar una rama con la que actualmente estamos
+        trabajando, utilizaremos <strong>git merge</strong>:
         </p>
         <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
 * master
@@ -151,6 +241,9 @@ Fast-forward
  1 files changed, 1 insertions(+), 0 deletions(-)
  create mode 100644 b.txt
 </pre>
+      <p><strong>Git</strong> es capaz de resolver conflictos en los cambios de
+      manera automática (y muy inteligentemente), salvo aquellos que no haya
+      más remedio que resolverlos a mano.</p>
       </article>
       
       <article class='fill'>

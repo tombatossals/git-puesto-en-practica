@@ -1,0 +1,25 @@
+b0c3a69 More slides
+bf3b25c Added more info to the first slide
+b1a9579 Second presentation
+c739a52 Removed the frontpage images effect, needs to be redone
+d1d2251 Forkme on github link
+79d3062 Front page redesigned
+bbe597b Started the second part of the presentation
+483eb51 Redesigned frontpage
+ec73cbf Almost finished first-steps
+1495512 New slides, and demo commit for the slides
+79dade1 Removed the index.html reference to the slides
+cd27518 Error on site.yaml
+9e34c40 Added site.yaml for drydrop configuration
+ef812de new slides added, almost finished the first section
+af50761 CSS changes and more slides
+cda83e2 Some new slides and changes
+9ca8b56 Redesigned front page
+78c7f74 JS bug solved
+0505795 Small bug solved
+d71bb4d Finishing the presentation structure
+6bccf83 Modified about page
+b8fcce0 Solved small bug
+c57a8ad Re-structuring contents
+92a293e Added an initial page
+3f09ae2 first commit
