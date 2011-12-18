@@ -236,6 +236,24 @@ div#wrapper {
     -webkit-border-radius: 20px;
 }
 
+a.home {
+    margin: 1em 0 0 0;
+    float: right;
+}
+
+a.home > img {
+    padding: .3em;
+    width: 64px;
+}
+
+a.home:hover {
+    box-shadow: 0 0 5px 5px #888;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
 a.small {
     font-size: .6em;
 }

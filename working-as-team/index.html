@@ -39,9 +39,6 @@
         <div class='source'>
           <a href="https://plus.google.com/100184619238119414805/posts">+David Rubert</a>
         </div>
-        <div class='source right'>
-          <a id="about-reference" href="#11">Acerca de...</a>
-        </div>
       </article>
 
       <article>
@@ -143,9 +140,17 @@
         </iframe>
       </article>
  
+      <article>
+        <h1 class="title">git log --oneline --graph --decorate</h1>
+        <hr class="title" />
+        <p>Podemos navegar con este comando un proyecto tan complejo como git y
+        ver cómo desarrollan los gurús.</p>
+        <img class="shadow" style="width: 780px; margin-top: 1em;" src="images/gitloggraph.png" />
+      </article>
+ 
       <article class='fill'>
         <h3></h3>
-        <img alt="Atención: necesito vuestra concentración" src='../images/attention.gif'>
+        <img alt="Atención: necesito vuestra concentración 5 minutos" src='../images/attention.gif'>
       </article>
  
       <article>
@@ -246,12 +251,72 @@ Fast-forward
       más remedio que resolverlos a mano.</p>
       </article>
       
+      <article>
+        <h1 class="title">Trabajando con repositorios remotos</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/remote.jpg" />
+        <p class="justify">
+        Un proyecto <strong>git</strong> no tiene un repositorio central al que
+        enviar los cambios, pero para colaborar en un proyecto integrado por
+        varios desarrolladores, necesitaremos enviar nuestros cambios a un
+        repositorio común.</p>
+        </p>
+        <hr />
+        <p class="justify">Es habitual tener definido un repositorio remoto con
+        el cual interactuaremos enviando nuestros cambios (si tenemos permisos
+        de escritura), o del cual nos traeremos las actualizaciones que se
+        vayan produciendo.</p>
+      </article>
+
+      <article>
+        <p class="justify">
+        Los repositorios <strong>git</strong> son todos iguales (no hay
+        diferencia entre cliente y servidor). En algunos tendremos permisos de
+        lectura y en otros permisos de lectura/escritura.
+        </p>
+        <p>Podemos definirnos todos los repositorios remotos que queramos
+        asociados a nuestro repositorio, de los que obtendremos (y tal vez
+        enviemos) actualizaciones.</p>
+        <hr />
+        <p>El comando que nos permite gestionar los repositorios remotos es
+        <strong>git remote</strong>.</p>
+      </article>
+
+      <article>
+        <h1 class="title">git remote</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/distributed.jpg" />
+        <p class="justify">
+        Si hemos clonado (con <strong>git clone</strong>) nuestro proyecto, ya
+        tendremos definido un repositorio remoto, que por defecto se identifica
+        con el alias <strong>origin</strong>.
+        <p>
+        <p>El comando <strong>git remote -v</strong> nos mostrará todos los
+        repositorios remotos que tengamos definidos:</p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git remote -v
+origin  git@github.com:tombatossals/git-in-practice.git (fetch)
+origin  git@github.com:tombatossals/git-in-practice.git (push)</pre>
+      </article>
+
+      <article>
+        <h1 class="title">git remote add/rm</h1>
+        <hr class="title" />
+        <p class="justify">
+        Añadimos o eliminamos repositorios remotos con estos dos comandos. El
+        nombre (alias) que le damos al repositorio es a nuestro gusto, aunque
+        como convenio se pone el repositorio base como <strong>origin</strong>.
+        </p>
+        <pre class="prettify lang-sh">[~/git-in-practice]$ git remote -v
+origin  git@github.com:tombatossals/git-in-practice.git (fetch)
+origin  git@github.com:tombatossals/git-in-practice.git (push)</pre>
+      </article>
+
       <article class='fill'>
         <h3></h3>
         <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
       </article>
 
     </section>
-
+      
   </body>
 </html>

@@ -12,17 +12,17 @@
     práctica sobre el uso de Git en un proyecto de software."
 	<meta name="author" content="David Rubert">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" href="../../css/practice.css">
-	<link rel="stylesheet" href="../../css/prettify.css">
+	<link rel="stylesheet" href="../css/practice.css">
+	<link rel="stylesheet" href="../css/prettify.css">
 
-    <script src="../../js/prettify.js"></script>
+    <script src="../js/prettify.js"></script>
 </head>
 
 <body onload="prettyPrint()">
 	<div id="header-container">
-        <header class="wrapper">
-            <a style="float: right;" href="../../"><img style="width: 96px;" src="../../images/home-icon.png" /></a>
-            <h1 id="title"><span class="git">Práctica</span> Primeros pasos</h1>
+        <header>
+            <a class="home" href=".."><img src="../images/home-icon.png" /></a>
+            <h1 id="title"><span class="git">Práctica</span> y algunas recetas</h1>
 		</header>
 	</div>
     <div id="main" class="wrapper">
@@ -39,6 +39,8 @@ echo "Hello World" > README
 git init
 Initialized empty Git repository in /home/dave/helloworld/.git/
 </pre>
+        <h2>Examinar el historial de cambios de un archivo</h2>
+        <pre class="prettyprint lang-sh linenums">git log --follow -p &lt;archivo&gt;</pre>
 		</article>
     </div>
     

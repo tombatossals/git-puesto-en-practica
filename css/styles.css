@@ -57,7 +57,15 @@ a.home > img {
 }
 
 a.home:hover {
-    box-shadow: 0 0 5px 5px #444;
+    box-shadow: 0 0 5px 5px #888;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+img.shadow {
+    box-shadow: 10px 10px 5px #888;
 }
 
 .slides {

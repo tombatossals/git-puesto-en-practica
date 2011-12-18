@@ -629,8 +629,6 @@ function handleDomLoaded() {
   setupInteraction();
   makeBuildLists();
 
-  var about = document.getElementById("about-reference");
-  about.addEventListener('click', function() { curSlide = slideEls.length - 2; updateSlides(); }, false);
   if (imgSlides) {
     updategal();
   }

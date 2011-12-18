@@ -214,8 +214,7 @@ html {
 }
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-family:Verdana,Geneva,sans-serif;
+    font-family: 'Holtwood One SC',Verdana,Geneva,sans-serif;
     height: 100%;
     position: relative;
     min-width: 960px;
@@ -230,7 +229,6 @@ body {
 div#wrapper {
     border: 1px solid #AAA;
     padding: 1em 3em 0em;
-    height: 60%;
     margin-top: 10%;
     background: white;
     box-shadow: 10px 10px 10px #888;
@@ -264,9 +262,9 @@ div#main {
 
 article > ol {
     color: #444;
-    font-size: 1.2em;
+    font-size: 2em;
     padding: 1em;
-    margin: 0 2em 2em;
+    margin: 2em 4em 2em;
 }
 
 article > ol > li {
@@ -274,24 +272,30 @@ article > ol > li {
     font-size: 1em;
 }
 
-article > ol > li > a.slides {
+article > ol.slides > li > a {
     color: #444;
     text-decoration: none;
     padding: .2em .5em;
     width: 60%;
 }
 
-article > ol > li > a.slides:visited {
+article > ol.slides > li > a:visited {
     color: #444;
 }
 
-article > ol > li > a.slides:hover {
+article > ol.slides > li > a:hover {
     color: #222;
     text-shadow: 3px 2px 0px #fff, 7px 6px 0px rgba(0,0,0,0.35);
     border-radius: 20px;
     -o-border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
+    -webkit-transition-property: text-shadow, color;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-property: box-shadow;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease;
 }
 
 footer {
