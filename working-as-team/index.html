@@ -27,7 +27,7 @@
            slides below. -->
         
         
-      <a class="home" href=".."><img src="../images/home-icon.png" /></a>
+      <a class="home" href=".."><img src="../images/home-icon2.png" /></a>
 
       <article class='biglogo'>
         <h1 class="title">En el capítulo de hoy...</h1>
@@ -306,9 +306,25 @@ origin  git@github.com:tombatossals/git-in-practice.git (push)</pre>
         nombre (alias) que le damos al repositorio es a nuestro gusto, aunque
         como convenio se pone el repositorio base como <strong>origin</strong>.
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git remote -v
-origin  git@github.com:tombatossals/git-in-practice.git (fetch)
-origin  git@github.com:tombatossals/git-in-practice.git (push)</pre>
+        <p>Añadir un repositorio:</p>
+        <pre class="prettify lang-sh">git remote add octopress git://github.com/imathis/octopress.git</pre>
+        <p>Borrar un repositorio:</p>
+        <pre class="prettify lang-sh">git remote rm octopress</pre>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="¡No os durmáis todavía!" src='images/wait.jpg'>
+      </article>
+
+      <article>
+        <h1 class="title">Recibir/enviar cambios a los repositorios</h1>
+        <hr class="title" />
+        <p class="justify">
+        Ya sabemos cómo enlazar nuestro repositorio con otros repositorios
+        asociados. Veamos cómo obtener los cambios de un repositorio de nivel
+        superior.
+        </p>
       </article>
 
       <article class='fill'>
