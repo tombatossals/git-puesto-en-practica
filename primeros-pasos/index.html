@@ -14,7 +14,7 @@
 
 <html>
   <head>
-    <title>Git in practice: First steps</title>
+    <title>Git puesto en práctica: Primeros pasos</title>
     <meta charset='utf-8'>
     <script src='../js/slides.js'></script>
   </head>
@@ -30,9 +30,9 @@
       <a class="home" href=".."><img src="../images/home-icon2.png" /></a>
 
       <article class='biglogo'>
-        <h1 class="title">En el capítulo de hoy...</h1>
-        <h2 class="title">Git <span style="font-size: .5em">in practice</span></h2>
-        <h3 class="subtitle"><span style="font-size: .2em">Primeros pasos</span></h3>
+        <h1 class="title">Git puesto en práctica</h1>
+        <h2 class="title">Git</h2>
+        <h3 class="subtitle">Primeros pasos</h3>
         <div class="subinfo">
           Apreta la tecla <span class="key">&rarr;</span> para avanzar.
         </div>
@@ -240,7 +240,7 @@ $ sudo pacman -S git
         archivo modificado con respecto al último commit, ni tenemos ningún
         archivo planificado para el próximo commit en el índice.
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git status
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git status
 # On branch master
 nothing to commit (working directory clean)</pre>
       </article>
@@ -278,16 +278,16 @@ Initialized empty Git repository in /home/dave/helloworld/.git/
           <strong>git clone</strong>. Este comando obtiene una copia local de un repositorio remoto.
         </p>
         <pre class="prettify lang-sh"># Clonamos el repositorio fuente de esta presentacion
-$ git clone git@github.com:tombatossals/git-in-practice.git
-Cloning into 'git-in-practice'...
+$ git clone git@github.com:tombatossals/git-puesto-en-practica.git
+Cloning into 'git-puesto-en-practica'...
 remote: Counting objects: 49, done.
 remote: Compressing objects: 100% (40/40), done.
 remote: Total 49 (delta 11), reused 44 (delta 6)
 Receiving objects: 100% (49/49), 425.79 KiB | 117 KiB/s, done.
 Resolving deltas: 100% (11/11), done.
 
-$ cd git-in-practice/
-[~/git-in-practice]$ ls
+$ cd git-puesto-en-practica/
+[~/git-puesto-en-practica]$ ls
 500.html  css  first  fonts  images  index.html  js  README.md
 </pre>
       </article>
@@ -315,13 +315,13 @@ $ cd git-in-practice/
           trabajo.
         </p>
         <pre class="prettify lang-sh"># Añadir un archivo local al repositorio
-[~/git-in-practice]$ git add 404.html
+[~/git-puesto-en-practica]$ git add 404.html
 
 # Mover un archivo a otro directorio (también renombrar)
-[~/git-in-practice]$ git mv TODO first-steps/
+[~/git-puesto-en-practica]$ git mv TODO first-steps/
 
 # Borrar un archivo del repositorio y local
-[~/git-in-practice]$ git rm hola
+[~/git-puesto-en-practica]$ git rm hola
 </pre>
       </article>
       
@@ -392,7 +392,7 @@ $ cat $HOME/.gitconfig
         con todos los cambios planificados en los archivos del índice. Es
         habitual enviar un comentario con los cambios hechos en el commit.
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git commit
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git commit
 [master 1495512] New slides, and demo commit for the slides
  3 files changed, 79 insertions(+), 28 deletions(-)</pre>
         <p>Tenemos un commando especial para vagos, que es: <strong>git commit
@@ -407,7 +407,7 @@ $ cat $HOME/.gitconfig
         <strong>git reset HEAD</strong>. Limpia todos aquellos archivos y
         cambios que se habían planificado en el índice para el próximo commit.
         </p>
-        <pre class="prettify lang-sh">[dave@inuik git-in-practice]$ git reset HEAD
+        <pre class="prettify lang-sh">[dave@inuik git-puesto-en-practica]$ git reset HEAD
 Unstaged changes after reset:
 M   first-steps/index.html</pre>
         <p>Podemos quitar del índice un único archivo si así lo queremos,

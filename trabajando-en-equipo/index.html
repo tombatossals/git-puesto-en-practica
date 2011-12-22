@@ -14,7 +14,7 @@
 
 <html>
   <head>
-    <title>Git in practice: Working as Team</title>
+    <title>Git puesto en práctica: Trabajando en equipo</title>
     <meta charset='utf-8'>
     <script src='../js/slides.js'></script>
   </head>
@@ -30,9 +30,9 @@
       <a class="home" href=".."><img src="../images/home-icon2.png" /></a>
 
       <article class='biglogo'>
-        <h1 class="title">En el capítulo de hoy...</h1>
-        <h2 class="title">Git <span style="font-size: .5em">in practice</span></h2>
-        <h3 class="subtitle"><span style="font-size: .2em">Trabajando en equipo</span></h3>
+        <h1 class="title">Git puesto en práctica</h1>
+        <h2 class="title">Git</h2>
+        <h3 class="subtitle">Trabajando en equipo</h3>
         <div class="subinfo">
           Apreta la tecla <span class="key">&rarr;</span> para avanzar.
         </div>
@@ -173,14 +173,14 @@
         <p class="justify">
         Para listar las ramas creadas en el repositorio:
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch
 * master</pre>
         <p>La rama principal que siempre tendremos creada se denomina
         <strong>master</strong>.</p>
         <hr />
         <p>Creamos una rama nueva con el siguiente comando:</p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch testing
-[~/git-in-practice]$ git branch
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch testing
+[~/git-puesto-en-practica]$ git branch
 * master
   testing</pre>
 
@@ -191,11 +191,11 @@
         Finalmente, borramos una rama utilizando el parámetro
         <strong>-d</strong>.
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch
 * master
   testing
-[~/git-in-practice]$ git branch -d testing
-[~/git-in-practice]$ git branch
+[~/git-puesto-en-practica]$ git branch -d testing
+[~/git-puesto-en-practica]$ git branch
 * master</pre>
        <hr />
        <p>La facilidad de uso de las ramas nos permite bifurcar una versión
@@ -210,21 +210,21 @@
         Podemos cambiar el contexto y comenzar a trabajar con otra rama
         mediante el comando <strong>checkout</strong>.
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch
 * master
   devel
 
-[~/git-in-practice$ ls
+[~/git-puesto-en-practica]$ ls
 a.txt
 
-[~/git-in-practice$ git checkout devel
+[~/git-puesto-en-practica]$ git checkout devel
 Switched to branch 'devel'
 
-[~/git-in-practice$ git branch
+[~/git-puesto-en-practica]$ git branch
   master
 * devel
 
-[~/git-in-practice$ ls
+[~/git-puesto-en-practica]$ ls
 a.txt  b.txt
 </pre>
       </article>
@@ -236,10 +236,10 @@ a.txt  b.txt
         Si queremos fusionar una rama con la que actualmente estamos
         trabajando, utilizaremos <strong>git merge</strong>:
         </p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git branch
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch
 * master
   devel
-[~/git-in-practice$ git merge devel
+[~/git-puesto-en-practica]$ git merge devel
 Updating 211141d..26b8cd6
 Fast-forward
  b.txt |    1 +
@@ -293,9 +293,9 @@ Fast-forward
         <p>
         <p>El comando <strong>git remote -v</strong> nos mostrará todos los
         repositorios remotos que tengamos definidos:</p>
-        <pre class="prettify lang-sh">[~/git-in-practice]$ git remote -v
-origin  git@github.com:tombatossals/git-in-practice.git (fetch)
-origin  git@github.com:tombatossals/git-in-practice.git (push)</pre>
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git remote -v
+origin  git@github.com:tombatossals/git-puesto-en-practica.git (fetch)
+origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)</pre>
       </article>
 
       <article>
@@ -325,6 +325,8 @@ origin  git@github.com:tombatossals/git-in-practice.git (push)</pre>
         asociados. Veamos cómo obtener los cambios de un repositorio de nivel
         superior.
         </p>
+        <p>Esta operación es muy útil para estar siempre sincronizado a la
+        última con los cambios que van realizando en el proyecto principal.</p>
       </article>
 
       <article class='fill'>

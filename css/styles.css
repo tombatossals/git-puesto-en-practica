@@ -463,13 +463,13 @@ article h1.title > a {
 
 .slides > article > h3.subtitle {
     position: absolute;
-    top: 55%;
+    top: 60%;
     left: 0;
-    width: 870px;
+    width: 900px;
     text-align: center;
     font-family: 'Holtwood One SC', Arial;
     text-shadow: .1em .1em 0.3em #222;
-    font-size: 4em;
+    font-size: .8em;
     color: white;
     font-weight: normal; 
     text-decoration: none;
@@ -481,7 +481,7 @@ article h1.title > a {
     font-size: .6em;
     text-align: center;
     color: white;
-    width: 750px;
+    width: 770px;
 }
 
 article.fill .source {
