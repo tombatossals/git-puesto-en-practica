@@ -255,9 +255,14 @@ function prevSlide() {
 
     updateSlides();
   }
+
+  if (imgSlides) {
+    updategal();
+  }
 };
 
 function nextSlide() {
+
   if (buildNextItem()) {
     return;
   }
@@ -267,6 +272,11 @@ function nextSlide() {
 
     updateSlides();
   }
+
+  if (imgSlides) {
+    updategal();
+  }
+
 };
 
 /* Slide events */
@@ -512,9 +522,6 @@ function handleBodyKeyDown(event) {
     case 32: // space
     case 34: // PgDn
       nextSlide();
-      if (imgSlides) {
-        updategal();
-      }
       event.preventDefault();
       break;
 
@@ -522,9 +529,6 @@ function handleBodyKeyDown(event) {
     case 8: // Backspace
     case 33: // PgUp
       prevSlide();
-      if (imgSlides) {
-        updategal();
-      }
       event.preventDefault();
       break;
 
@@ -727,14 +731,19 @@ function updategal() {
     var g = document.querySelector("article.current.fill");
     if (g == null || g.length == 0) return;
 
-    // Al pulsar click sobre la diapositiva, ocultar el título por 10 segundos
+    // Al pulsar click sobre la imagen , pasar a la siguiente
     g.addEventListener("click", function(e) { 
         e.preventDefault();
-        var h3 = this.querySelector("h3");
-        h3.style.display = "none";
-        var source = this.querySelector("div.source");
-        source.style.display = "none";
-        setTimeout( function () { h3.style.display = "inherit"; source.style.display = "inherit"}, 10000);
+        gnext();
+    });
+
+    var h = g.querySelector("h3");
+    // Al pulsar sobre el título, ocultarlo por 10 segundos
+    h.addEventListener("click", function(e) { 
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        this.style.display = "none";
+        setTimeout( function () { h.style.display = "inherit"; }, 10000);
     });
 
 

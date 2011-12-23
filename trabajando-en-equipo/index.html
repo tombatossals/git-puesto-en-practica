@@ -344,47 +344,52 @@ origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)</pre>
         <img class="logo" src="images/pull.jpg" />
         <p class="justify">
         Este comando obtiene los últimos cambios del repositorio
-        remoto que queramos, y automáticamente realiza un
-        <strong>merge</strong> con la rama local con la que estemos
+        remoto, y realiza un <strong>merge</strong> con la rama local con la que estemos
         trabajando.
         </p>
-        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
-</pre>
-        <hr />
-        <p>Tal vez este comando es "demasiado automático". Veremos una
-        alternativa en la diapositiva siguiente.</p>
+        <pre style="margin-top: .3em;" class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 3), reused 6 (delta 3)
+Unpacking objects: 100% (6/6), done.
+From github.com:tombatossals/git-puesto-en-practica
+   7d8ccd7..9c0a361  master     -> origin/master
+Updating 7d8ccd7..9c0a361
+Fast-forward
+ acerca-de/index.html                 |   52 ++++++++++++++++++++++++++
+ trabajando-en-equipo/images/pull.jpg |  Bin 0 -> 65507 bytes
+ trabajando-en-equipo/index.html      |   66 +++++++++++++++++++++++++++++++--
+ 3 files changed, 114 insertions(+), 4 deletions(-)
+ create mode 100644 acerca-de/index.html
+ create mode 100644 trabajando-en-equipo/images/pull.jpg</pre>
       </article>
 
       <article>
-        <h1 class="title">git pull [&lt;repositorio&gt;]</h1>
+        <h1 class="title">git fetch [&lt;repositorio&gt;]</h1>
         <hr class="title" />
-        <img class="logo" src="images/pull.jpg" />
         <p class="justify">
-        Este comando obtiene los últimos cambios del repositorio
-        remoto que queramos, y automáticamente realiza un
-        <strong>merge</strong> con la rama local con la que estemos
-        trabajando.
+        Tal vez <strong>pull</strong> sea un comando "demasiado automático". <strong>git fetch</strong> es una alternativa más controlada, ya que al traerse los cambios del repositorio remoto no los aplica directamente sobre nuestra rama, sino que espera que nosotros lo hagamos manualmente.
         </p>
-        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
-</pre>
-        <hr />
-        <p>Tal vez este comando es "demasiado automático". Veremos una
-        alternativa en la diapositiva siguiente.</p>
+        <p>Despues de un <strong>git fetch</strong> es conveniente hacer un <strong>git diff upstream/master</strong>, comparando las ramas de trabajo local con la del repositorio remoto.</p>
+        <p>Finalmente, si estamos de acuerdo con los cambios, ejecutaremos un <strong>git merge upstream/master</strong>.</p>
       </article>
 
       <article>
         <h1 class="title">git push [&lt;repositorio&gt;]</h1>
         <hr class="title" />
-        <img class="logo" src="images/pull.jpg" />
+        <img class="logo" src="images/push.jpg" />
         <p class="justify">
         Enviamos todos los cambios que hemos realizados sobre nuestro
         repositorio local al repositorio/s remoto/s que tengamos definido/s.
         </p>
         <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git push
-</pre>
-        <hr />
-        <p>Tal vez este comando es "demasiado automático". Veremos una
-        alternativa en la diapositiva siguiente.</p>
+Counting objects: 10, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 60.16 KiB, done.
+Total 6 (delta 3), reused 0 (delta 0)
+To git@github.com:tombatossals/git-puesto-en-practica.git
+   7d8ccd7..9c0a361  master -> master</pre>
       </article>
 
       <article class='fill'>
