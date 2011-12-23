@@ -314,19 +314,77 @@ origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)</pre>
 
       <article class='fill'>
         <h3></h3>
-        <img alt="¡No os durmáis todavía!" src='images/wait.jpg'>
+        <img alt="¡No os durmáis todavía! Viene algo interesante." src='images/wait.jpg'>
       </article>
 
       <article>
         <h1 class="title">Recibir/enviar cambios a los repositorios</h1>
         <hr class="title" />
+        <img class="logo" src="images/rocket.jpg" />
         <p class="justify">
         Ya sabemos cómo enlazar nuestro repositorio con otros repositorios
-        asociados. Veamos cómo obtener los cambios de un repositorio de nivel
+        asociados. Veamos cómo obtener (o enviar) los cambios de un repositorio de nivel
         superior.
         </p>
-        <p>Esta operación es muy útil para estar siempre sincronizado a la
-        última con los cambios que van realizando en el proyecto principal.</p>
+        <p>Esta operación es muy útil para estar siempre en sincronía 
+        con los cambios que van realizando en el proyecto principal.</p>
+        <hr />
+        <ul>
+            <li><strong>git pull</strong>. Obtiene todos
+            los últimos cambios del repositorio y hace un
+            <strong>merge</strong>.</li>
+            <li><strong>git push</strong>. Envía nuestros últimos commits al
+            repositorio.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h1 class="title">git pull [&lt;repositorio&gt;]</h1>
+        <hr class="title" />
+        <img class="logo" src="images/pull.jpg" />
+        <p class="justify">
+        Este comando obtiene los últimos cambios del repositorio
+        remoto que queramos, y automáticamente realiza un
+        <strong>merge</strong> con la rama local con la que estemos
+        trabajando.
+        </p>
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
+</pre>
+        <hr />
+        <p>Tal vez este comando es "demasiado automático". Veremos una
+        alternativa en la diapositiva siguiente.</p>
+      </article>
+
+      <article>
+        <h1 class="title">git pull [&lt;repositorio&gt;]</h1>
+        <hr class="title" />
+        <img class="logo" src="images/pull.jpg" />
+        <p class="justify">
+        Este comando obtiene los últimos cambios del repositorio
+        remoto que queramos, y automáticamente realiza un
+        <strong>merge</strong> con la rama local con la que estemos
+        trabajando.
+        </p>
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
+</pre>
+        <hr />
+        <p>Tal vez este comando es "demasiado automático". Veremos una
+        alternativa en la diapositiva siguiente.</p>
+      </article>
+
+      <article>
+        <h1 class="title">git push [&lt;repositorio&gt;]</h1>
+        <hr class="title" />
+        <img class="logo" src="images/pull.jpg" />
+        <p class="justify">
+        Enviamos todos los cambios que hemos realizados sobre nuestro
+        repositorio local al repositorio/s remoto/s que tengamos definido/s.
+        </p>
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git push
+</pre>
+        <hr />
+        <p>Tal vez este comando es "demasiado automático". Veremos una
+        alternativa en la diapositiva siguiente.</p>
       </article>
 
       <article class='fill'>

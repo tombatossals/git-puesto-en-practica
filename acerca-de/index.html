@@ -1,0 +1,52 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Git puesto en práctica</title>
+	<meta name="description" content="Git puesto en práctica. Presentación didáctica y
+    práctica sobre el uso de Git en un proyecto de software."
+	<meta name="author" content="David Rubert">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="../css/practice.css">
+	<link rel="stylesheet" href="../css/prettify.css">
+
+    <script src="../js/prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div id="header-container">
+        <header>
+            <a class="home" href=".."><img src="../images/home-icon.png" /></a>
+            <h1 id="title"><span class="git">Práctica</span> y algunas recetas</h1>
+		</header>
+	</div>
+    <div id="main" class="wrapper">
+        <article>
+        <p>Veamos como crear un repositorio <strong>git</strong> para trabajar con nuestros archivos de código
+        fuente, y las operaciones básicas de las que disponemos para interactuar con el repositorio.</p>
+        <h2>Inicializar un repositorio</h2>
+        <pre class="prettyprint lang-sh linenums"># Creamos un directorio y un archivo
+mkdir helloworld
+cd hellworld
+echo "Hello World" > README
+
+# Inicializamos el repositorio
+git init
+Initialized empty Git repository in /home/dave/helloworld/.git/
+</pre>
+        <h2>Examinar el historial de cambios de un archivo</h2>
+        <pre class="prettyprint lang-sh linenums">git log --follow -p &lt;archivo&gt;</pre>
+		</article>
+    </div>
+    
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+</body>
+</html>
