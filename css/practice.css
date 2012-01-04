@@ -208,8 +208,12 @@ table { border-collapse: collapse; border-spacing: 0; }
   src: local("Holtwood One SC"), local("HoltwoodOneSC"), url("../fonts/HoltwoodOneSC.ttc"), url("http://themes.googleusercontent.com/static/fonts/holtwoodonesc/v2/sToOq3cIxbfnhbEkgYNuBbFxFljtrsr2f1jsZCF5R04.ttf") format("truetype");
 }
 
+h2 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+}
+
 html {
-    overflow: hidden;
     height: 100%;
 }
 
