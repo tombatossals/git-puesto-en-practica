@@ -110,10 +110,8 @@
             BSD, Solaris, Darwin (MacOSX), etc.
           </li>
           <li>
-            <strong>Windows</strong>. A través de alguna de estas
-            implementaciones: <a href="http://code.google.com/p/msysgit/">msysGit</a>, 
-            <a href="http://code.google.com/p/tortoisegit/">TortoiseGit</a>,
-            encima de <a href="http://www.cygwin.com/">Cygwin</a>, o <a href="http://www.jgit.org/">JGit</a>.
+            <strong>Windows</strong>. A través de la siguiente implementación: <a href="http://code.google.com/p/msysgit/">msysGit</a>. Podemos añadirle opcionalmente una extensión de shell que nos permita trabajar con <strong>git</strong> visualmente:
+            <a href="http://code.google.com/p/tortoisegit/">TortoiseGit</a>.
           </li>
         </ul>
       </article>
@@ -123,7 +121,7 @@
         <h2>
             Instalación
         </h2>
-        <p>La instalación de <strong>Git</strong> dependerá de la plataforma,
+        <p class="justify">La instalación de <strong>Git</strong> en Linuxdependerá de la plataforma,
         pero suele ser un proceso trivial ya que viene empaquetado en todas las
         distribuciones.</p>
         <pre class="prettify lang-sh"># En Ubuntu/debian
@@ -132,8 +130,7 @@ $ sudo apt-get install git-core
 # En Archlinux
 $ sudo pacman -S git
 </pre>
-        <p>En Windows o MacOSX puede ser un poco más laborioso, pero no mucho
-        más.</p>
+        <p>En Windows o MacOSX se utiliza un instalador visual, es decir, que es también muy sencillo.</p>
       </article>
 
       <article>
@@ -172,17 +169,13 @@ $ sudo pacman -S git
                 <td>git commit -a</td>
                 <td>svn commit</td>
             </tr>
-            <tr>
+            <tr class="red">
                 <td>git clone &lt;url&gt;</td>
                 <td>svn checkout &lt;url&gt;</td>
             </tr>
-            <tr>
+            <tr class="red">
                 <td>git checkout &lt;path&gt;</td>
                 <td>svn revert &lt;path&gt;</td>
-            </tr>
-            <tr>
-                <td>git tag -a &lt;tag-name&gt;</td>
-                <td>svn copy &lt;url1&gt; &lt;url2&gt;</td>
             </tr>
             <tr>
                 <td>git branch &lt;branch-name&gt;</td>
@@ -295,15 +288,15 @@ $ cd git-puesto-en-practica/
       <article>
         <h1 class="title">El directorio .git</h2>
         <hr class="title" />
+        <img class="logo" src="images/folder.png" />
+        <p class="justify">El directorio de trabajo es muy limpio, la única referencia que veremos al sistema de control de versiones es un directorio <strong>.git</strong> ubicado en el directorio principal del proyecto.</p>
         <p class="justify">
-          Una de las cosas que más llaman la atención es lo limpio que queda todo en tu directorio de trabajo. Si al clonar un repositorio lo estamos obteniendo de manera completa...</p>
+	  Cosas que os van a llamar la atención al clonar y trabajar sobre un repositorio <strong>Git</strong>:
         <ul>
-            <li>¿cómo es que lo ha obtenido tan rápido?</li>
-            <li>¿dónde está la base de datos de revisiones?</li>
-            <li>¿por qué ocupa tan poco?</li>
-        </ul>
-        <hr />
-        <p><strong>Ejercicio:</strong> Ejecuta un "find .git" en tu directorio de trabajo y echa un vistazo a la estructura de archivos que hay creada.</p>
+	    <li>Todo va muy rápido.</li>
+	    <li>Para tener un histórico completo del desarrollo, ocupa muy poco todo.</li>
+	    <li>La modificación de archivos binarios se gestiona de forma muy eficiente.</li>
+	</ul>
       </article>
       
       <article>
@@ -329,7 +322,6 @@ $ cd git-puesto-en-practica/
         <img class="logo" src="../images/terminal-logo.png" />
         <h2>Obtención de diferencias</h2>
         <p>Tenemos tres posibles maneras de hacer un diff.</p>
-        <hr />
         <p class="justify">
           <strong>git diff</strong>. Nos muestra las diferencias de los cambios
           que todavía no hemos planificado para el próximo commit.
@@ -397,7 +389,7 @@ $ cat $HOME/.gitconfig
  3 files changed, 79 insertions(+), 28 deletions(-)</pre>
         <p>Tenemos un commando especial para vagos, que es: <strong>git commit
             -a</strong>, que enviará todos los cambios a aquellos archivos que
-        ya estaban en el repositorio, aunque no los hayamos añadido al índice.
+        ya estaban en el repositorio, aunque no los hayamos añadido explícitamente al índice.
       </article>
       
       <article>
