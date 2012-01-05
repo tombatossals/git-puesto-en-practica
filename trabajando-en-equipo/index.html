@@ -146,7 +146,7 @@
       <article>
         <h1 class="title">git log --oneline --graph --decorate</h1>
         <hr class="title" />
-        <p>Podemos navegar con este comando un proyecto tan complejo como git y
+        <p>Podemos navegar con este comando un proyecto tan complejo como <strong>git</strong> y
         ver cómo desarrollan los gurús.</p>
         <img class="shadow" style="width: 780px; margin-top: 1em;" src="images/gitloggraph.png" />
       </article>
@@ -162,12 +162,13 @@
         <img class="logo" src="images/branch.png" />
         <p class="justify">
         Las ramas son bifurcaciones del proyecto, que permiten desarrollar
-        diferentes partes de un software en paralelo. Facilitan el aislar los
+        diferentes partes de un software en paralelo.</p>
+	<p>Facilitan el aislar los
         cambios sin afectar al resto del desarrollo, para posteriormente
         fusionar la rama con la <strong>master branch</strong> (si así lo deseamos).
         </p>
         <hr />
-        <p>Una rama nueva se crea con <strong>git branch &lt;nombre&gt;</strong>, cambiaremos al contexto de una rama con el comando <strong>git checkout &lt;nombre&gt;</strong>, y fusionaremos ramas con <strong>git merge</strong>. Veamos en detalle cada comando.</p>
+        <p>Una rama nueva se crea con el comando <strong>git branch</strong>, cambiaremos al contexto de una rama con el comando <strong>git checkout</strong>, y fusionaremos ramas con <strong>git merge</strong>. Veamos en detalle cada comando.</p>
       </article>
       
       <article>
@@ -191,8 +192,7 @@
       
       <article>
         <p class="justify">
-        Finalmente, borramos una rama utilizando el parámetro
-        <strong>-d</strong>.
+        Borramos una rama utilizando el parámetro <strong>-d</strong>.
         </p>
         <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch
 * master
@@ -216,17 +216,13 @@
         <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ git branch
 * master
   devel
-
 [~/git-puesto-en-practica]$ ls
 a.txt
-
 [~/git-puesto-en-practica]$ git checkout devel
 Switched to branch 'devel'
-
 [~/git-puesto-en-practica]$ git branch
   master
 * devel
-
 [~/git-puesto-en-practica]$ ls
 a.txt  b.txt
 </pre>
@@ -254,6 +250,39 @@ Fast-forward
       más remedio que resolverlos a mano.</p>
       </article>
       
+      <article>
+        <h1 class="title">Conflictos: 3-way merge</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/conflict.jpg" />
+        <p class="justify">
+        Un proyecto <strong>git</strong> no tiene un repositorio central al que
+        enviar los cambios, pero para colaborar en un proyecto integrado por
+        varios desarrolladores, necesitaremos enviar nuestros cambios a un
+        repositorio común.</p>
+        </p>
+        <hr />
+        <p class="justify">Es habitual tener definido un repositorio remoto con
+        el cual interactuaremos enviando nuestros cambios (si tenemos permisos
+        de escritura), o del cual nos traeremos las actualizaciones que se
+        vayan produciendo.</p>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="" src='images/3way01.png'>
+        <img alt="" src='images/3way02.png'>
+        <img alt="" src='images/3way03.png'>
+        <img alt="" src='images/3way04.png'>
+        <img alt="" src='images/3way05.png'>
+        <img alt="" src='images/3way06.png'>
+        <img alt="" src='images/3way07.png'>
+        <img alt="" src='images/3way08.png'>
+        <img alt="" src='images/3way02.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+        </div>
+      </article>
+
       <article>
         <h1 class="title">Trabajando con repositorios remotos</h1>
         <hr class="title" />
