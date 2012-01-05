@@ -11,7 +11,8 @@
 	<meta name="description" content="Git puesto en práctica. Presentación didáctica y
     práctica sobre el uso de Git en un proyecto de software."
 	<meta name="author" content="David Rubert">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="git, tutorial, practica, ejemplos, aprendizaje" />
 	<link rel="stylesheet" href="../css/practice.css">
 	<link rel="stylesheet" href="../css/prettify.css">
 
@@ -39,8 +40,97 @@ echo "Hello World" > README
 git init
 Initialized empty Git repository in /home/dave/helloworld/.git/
 </pre>
+        <h2>Enlazar con un repositorio remoto</h2>
+        <p>Imaginaros ahora que queremos que nuestro repositorio local recien
+        creado se comunique con un repositorio remoto. Definiremos para ello un
+        <strong>remote</strong>, con lo cual podremos empezar a realizar
+        comandos <strong>pull/fecth</strong>, y si tenemos permiso, también
+        <strong>push</strong>.
+        <pre class="prettyprint lang-sh linenums">
+git remote add origin git@gitlab.micronautas.com:testing.git
+git push -u origin master
+</pre>
+        <h2>Obtener un repositorio remoto</h2>
+        <p>Normalmente no partimos de cero en nuestro repositorio, sino que ya
+        existe (por ejemplo en <strong>github.com</strong>). Si quisiéramos
+        obtener una copia local de ese repositorio remoto, estableciendo además
+        automáticamente el <strong>remote</strong> a ese repositorio,
+        utilizaremos el siguiente comando:</p>
+        <pre class="prettyprint lang-sh linenums">
+$ git clone git@github.com:tombatossals/git-puesto-en-practica.git
+Cloning into 'git-puesto-en-practica'...
+remote: Counting objects: 293, done.
+remote: Compressing objects: 100% (258/258), done.
+remote: Total 293 (delta 123), reused 197 (delta 27)
+Receiving objects: 100% (293/293), 3.13 MiB | 234 KiB/s, done.
+Resolving deltas: 100% (123/123), done.
+$ cd git-puesto-en-practica/
+$ git branch
+ * master
+$ git remote -v
+origin  git@github.com:tombatossals/git-puesto-en-practica.git (fetch)
+origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)
+</pre>
+        <h2>Listando los últimos cambios del repositorio</h2>
+        <p>Listemos ahora los últimos cambios que se han producido en el repositorio, es decir, los últimos <strong>commits</strong> que han realizado los desarrolladores del repositorio:</p>
+        <pre class="prettyprint lang-sh linenums">
+$ git log --oneline
+fbcf1a6 Optimized for ipad
+9c0a361 Some minor changes
+7d8ccd7 Renamed project
+81716a8 Some cosmetic changes, and finished the second presentation.
+fde35e7 Lot of changes
+e7286e0 Working as team slides already finished
+b0c3a69 More slides
+...
+</pre>
+        <h2>Obtener los últimos cambios del repositorio remoto</h2>
+        <p>Veamos ahora cómo obtener todos los últimos cambios del repositorio
+        remoto haciendo un <strong>fetch</strong>.</p>
+        <pre class="prettyprint lang-sh linenums">
+$ git branch -a
+* master
+  remotes/origin/master
+$ git fetch
+remote: Counting objects: 13, done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 8 (delta 3), reused 8 (delta 3)
+Unpacking objects: 100% (8/8), done.
+From github.com:tombatossals/unimajors
+   0486878..d0f88cc  master     -> origin/master
+$ git diff origin/master
+diff --git a/2011-iim/sesion01/images/alineacion.jpg b/2011-iim/sesion01/images/alineacion.jpg
+deleted file mode 100644
+index 93d68ae..0000000
+Binary files a/2011-iim/sesion01/images/alineacion.jpg and /dev/null differ
+diff --git a/2011-iim/sesion01/images/espaciado.jpg b/2011-iim/sesion01/images/espaciado.jpg
+deleted file mode 100644
+index c902e4a..0000000
+Binary files a/2011-iim/sesion01/images/espaciado.jpg and /dev/null differ
+diff --git a/2011-iim/sesion01/index.html b/2011-iim/sesion01/index.html
+index 5210ff5..b1d02f8 100755
+--- a/2011-iim/sesion01/index.html
++++ b/2011-iim/sesion01/index.html
+@@ -287,14 +287,14 @@
+       &lt;article class='fill'&gt;
+         &lt;h3&gt;&lt;/h3&gt;
++        &lt;img alt="Tipo de fuente" src="images/font.jpg" /&gt;
+       &lt;/article&gt;
+ 
+       &lt;article&gt;
+$ git merge origin/master
+Updating 0486878..d0f88cc
+Fast-forward
+ 2011-iim/sesion01/images/alineacion.jpg |  Bin 0 -> 138057 bytes
+ 2011-iim/sesion01/images/espaciado.jpg  |  Bin 0 -> 86800 bytes
+ 2011-iim/sesion01/index.html            |    6 +++---
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+ create mode 100644 2011-iim/sesion01/images/alineacion.jpg
+ create mode 100644 2011-iim/sesion01/images/espaciado.jpg
+</pre>
         <h2>Examinar el historial de cambios de un archivo</h2>
         <pre class="prettyprint lang-sh linenums">git log --follow -p &lt;archivo&gt;</pre>
+        <br />
 		</article>
     </div>
     
