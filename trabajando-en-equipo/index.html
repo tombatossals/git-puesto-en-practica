@@ -59,8 +59,7 @@
         <ul>
             <li>Realizar <strong>commits</strong> "documentados" al repositorio.</p>
             <li>Trabajar con <strong>ramas</strong>.</li>
-            <li>Subir/descargar cambios de repositorios padre.</li>
-            <li>Saber lo que es el <strong>3-way merge</strong>.</li>
+            <li>Subir/descargar cambios de <strong>repositorios remotos</strong>.</li>
         </ul>
       </article>
 
@@ -151,6 +150,25 @@
         <img class="shadow" style="width: 780px; margin-top: 1em;" src="images/gitloggraph.png" />
       </article>
  
+      <article>
+        <h1 class="title">tig</h1>
+        <hr class="title" />
+        <p>Una herramienta muy útil para examinar el log de un proyecto es
+        <strong>tig</strong> (<a href="http://jonas.nitro.dk/tig/">website</a>).
+        Utilizando <strong>ncurses</strong> visualizaremos de forma estructurada
+        los últimos commits permitiendo una navegación cómoda.</p>
+        <hr />
+        Arrancamos <strong>tig</strong> desde el propio directorio del proyecto
+        para visualizar todo el histórico.
+        <pre class="prettify lang-sh">[~/git-puesto-en-practica]$ tig
+</pre>
+      </article>
+ 
+      <article class='fill'>
+        <h3></h3>
+        <img alt="tig" src='images/tig01.png'>
+      </article>
+ 
       <article class='fill'>
         <h3></h3>
         <img alt="Atención: necesito vuestra concentración 5 minutos" src='../images/attention.gif'>
@@ -168,7 +186,7 @@
         fusionar la rama con la <strong>master branch</strong> (si así lo deseamos).
         </p>
         <hr />
-        <p>Una rama nueva se crea con el comando <strong>git branch</strong>, cambiaremos al contexto de una rama con el comando <strong>git checkout</strong>, y fusionaremos ramas con <strong>git merge</strong>. Veamos en detalle cada comando.</p>
+        <p>Una rama nueva se crea con el comando <strong>git branch</strong>, cambiaremos al contexto de una rama con el comando <strong>git checkout</strong>, y fusionaremos ramas con <strong>git merge</strong>.</p>
       </article>
       
       <article>
@@ -207,7 +225,7 @@
       </article>
       
       <article>
-        <h1 class="title">git checkout &lt;branch&gt;</h1>
+        <h1 class="title">git checkout</h1>
         <hr class="title" />
         <p class="justify">
         Podemos cambiar el contexto y comenzar a trabajar con otra rama
@@ -229,7 +247,7 @@ a.txt  b.txt
       </article>
       
       <article>
-        <h1 class="title">git merge &lt;branch&gt;</h1>
+        <h1 class="title">git merge</h1>
         <hr class="title" />
         <p class="justify">
         Si queremos fusionar una rama con la que actualmente estamos
@@ -246,43 +264,10 @@ Fast-forward
  create mode 100644 b.txt
 </pre>
       <p><strong>Git</strong> es capaz de resolver conflictos en los cambios de
-      manera automática (y muy inteligentemente), salvo aquellos que no haya
+      manera automática (y de manera muy inteligente), salvo aquellos que no haya
       más remedio que resolverlos a mano.</p>
       </article>
       
-      <article>
-        <h1 class="title">Conflictos: 3-way merge</h1>
-        <hr class="title" />
-        <img class="logo shadow" src="images/conflict.jpg" />
-        <p class="justify">
-        Un proyecto <strong>git</strong> no tiene un repositorio central al que
-        enviar los cambios, pero para colaborar en un proyecto integrado por
-        varios desarrolladores, necesitaremos enviar nuestros cambios a un
-        repositorio común.</p>
-        </p>
-        <hr />
-        <p class="justify">Es habitual tener definido un repositorio remoto con
-        el cual interactuaremos enviando nuestros cambios (si tenemos permisos
-        de escritura), o del cual nos traeremos las actualizaciones que se
-        vayan produciendo.</p>
-      </article>
-
-      <article class='fill'>
-        <h3></h3>
-        <img alt="" src='images/3way01.png'>
-        <img alt="" src='images/3way02.png'>
-        <img alt="" src='images/3way03.png'>
-        <img alt="" src='images/3way04.png'>
-        <img alt="" src='images/3way05.png'>
-        <img alt="" src='images/3way06.png'>
-        <img alt="" src='images/3way07.png'>
-        <img alt="" src='images/3way08.png'>
-        <img alt="" src='images/3way02.png'>
-        <div class='source white'>
-            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
-        </div>
-      </article>
-
       <article>
         <h1 class="title">Trabajando con repositorios remotos</h1>
         <hr class="title" />
@@ -371,15 +356,14 @@ origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)</pre>
       </article>
 
       <article>
-        <h1 class="title">git pull [&lt;repositorio&gt;]</h1>
+        <h1 class="title">git pull</h1>
         <hr class="title" />
         <img class="logo" src="images/pull.jpg" />
         <p class="justify">
         Este comando obtiene los últimos cambios del repositorio
-        remoto, y realiza un <strong>merge</strong> con la rama local con la que estemos
-        trabajando.
-        </p>
-        <pre style="margin-top: .3em;" class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
+        remoto, y realiza un <strong>merge</strong> con el directorio de
+        trabajo.</p>
+        <pre style="clear: both; margin-top: .3em;" class="prettify lang-sh">[~/git-puesto-en-practica]$ git pull
 remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 6 (delta 3), reused 6 (delta 3)
@@ -392,22 +376,24 @@ Fast-forward
  trabajando-en-equipo/images/pull.jpg |  Bin 0 -> 65507 bytes
  trabajando-en-equipo/index.html      |   66 +++++++++++++++++++++++++++++++--
  3 files changed, 114 insertions(+), 4 deletions(-)
- create mode 100644 acerca-de/index.html
- create mode 100644 trabajando-en-equipo/images/pull.jpg</pre>
+ create mode 100644 acerca-de/index.html</pre>
       </article>
 
       <article>
-        <h1 class="title">git fetch [&lt;repositorio&gt;]</h1>
+        <h1 class="title">git fetch</h1>
         <hr class="title" />
         <p class="justify">
-        Tal vez <strong>pull</strong> sea un comando "demasiado automático". <strong>git fetch</strong> es una alternativa más controlada, ya que al traerse los cambios del repositorio remoto no los aplica directamente sobre nuestra rama, sino que espera que nosotros lo hagamos manualmente.
+        Tal vez <strong>pull</strong> sea un comando "demasiado automático".
+        <strong>git fetch</strong> es una alternativa más controlada, ya que al
+        traerse los cambios del repositorio remoto no los aplica directamente
+        sobre nuestro directorio de trabajo, sino que espera que nosotros lo hagamos manualmente.
         </p>
-        <p>Despues de un <strong>git fetch</strong> es conveniente hacer un <strong>git diff upstream/master</strong>, comparando las ramas de trabajo local con la del repositorio remoto.</p>
-        <p>Finalmente, si estamos de acuerdo con los cambios, ejecutaremos un <strong>git merge upstream/master</strong>.</p>
+        <p>Despues de un <strong>git fetch</strong> es conveniente hacer un <strong>diff</strong>, comparando las ramas de trabajo local con la del repositorio remoto.</p>
+        <p>Finalmente, si estamos de acuerdo con los cambios, ejecutaremos un <strong>merge</strong>.</p>
       </article>
 
       <article>
-        <h1 class="title">git push [&lt;repositorio&gt;]</h1>
+        <h1 class="title">git push</h1>
         <hr class="title" />
         <img class="logo" src="images/push.jpg" />
         <p class="justify">
@@ -427,6 +413,9 @@ To git@github.com:tombatossals/git-puesto-en-practica.git
       <article class='fill'>
         <h3></h3>
         <img alt="Flujo de información en Git (simplificado)" src='images/dataflow.png'>
+        <div class='source white'>
+            <p>Imagen de <a href="http://en.wikipedia.org/wiki/Git_(software)">Wikipedia</a></p>
+        </div>
       </article>
 
     </section>

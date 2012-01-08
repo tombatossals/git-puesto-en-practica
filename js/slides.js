@@ -740,10 +740,10 @@ function updategal() {
     var h = g.querySelector("h3");
     // Al pulsar sobre el título, ocultarlo por 10 segundos
     h.addEventListener("click", function(e) { 
+        h.style.display = "none";
+        setTimeout( function () { h.style.display = "inherit"; }, 10000);
         e.stopImmediatePropagation();
         e.preventDefault();
-        this.style.display = "none";
-        setTimeout( function () { h.style.display = "inherit"; }, 10000);
     });
 
 
