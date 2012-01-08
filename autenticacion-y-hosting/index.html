@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Git puesto en práctica: Autenticación y hosting</title>
+    <meta name="description" content="Git puesto en práctica. Presentación didáctica y
+    práctica sobre el uso de Git en un proyecto de software."
+    <meta name="keywords" content="git, tutorial, practica, ejemplos, aprendizaje" />
+    <meta charset='utf-8'>
+    <script src='../js/slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      <a class="home" href=".."><img src="../images/home-icon2.png" /></a>
+
+      <article class='biglogo'>
+        <h1 class="title">Git puesto en práctica</h1>
+        <h2 class="title">Git</h2>
+        <h3 class="subtitle">Autenticación y hosting</h3>
+        <div class="subinfo">
+          Apreta la tecla <span class="key">&rarr;</span> para avanzar.
+        </div>
+        <div class='source'>
+          <a href="https://plus.google.com/100184619238119414805/posts">+David Rubert</a>
+        </div>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Introducción
+        </h1>
+        <hr class="title" />
+        <img class="logo" src="images/authentication.jpg" />
+        <h2>Autenticación</h2>
+        <p class="justify">
+          Hay un detalle que todavía no hemos comentado. ¿Cómo realiza
+          <strong>git</strong> la autenticación de usuarios? Veámoslo.
+        </p>
+        <ul>
+            <li>Protocolos de acceso a un repositorio.</li>
+            <li>Autenticación por clave pública/privada.</li>
+            <li>Hosting de proyectos.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Protocolos de acceso
+        </h1>
+        <hr class="title" />
+        <h2>Local</h2>
+        <p class="justify">
+          El acceso local es trivial y sin autenticación.
+        </p>
+        <pre class="prettify lang-sh">$ git clone /opt/git/project.git</pre>
+        <h2>Protocolo GIT</h2>
+        <p class="justify">
+          Puerto 9418, por red y sin ningún tipo de autenticación.
+        </p>
+        <pre class="prettify lang-sh">$ git clone git://git.kernel.org/pub/scm/git/git.git</pre>
+
+      </article>
+
+      <article>
+        <h1 class="title">
+          Protocolos de acceso
+        </h1>
+        <hr class="title" />
+        <h2>Protocolo HTTP/HTTPS</h2>
+        <p class="justify">
+          El más sencillo y compatible para acceso en modo lectura.
+        </p>
+        <pre class="prettify lang-sh">$ git clone http://example.com/gitproject.git</pre>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Protocolos de acceso
+        </h1>
+        <hr class="title" />
+        <h2>Protocolo SSH</h2>
+        <p class="justify">
+          Es un acceso por red y autenticado.
+        </p>
+        <pre class="prettify lang-sh">$ git clone user@server:project.git</pre>
+        <p class="justify">
+          Se consigue el acceso conjunto de usuarios emparejando un usuario del sistema con una gestión de claves públicas/privadas SSH. Existe software que ya implementa este funcionamiento, como por ejemplo <strong>gitosis</strong> o <strong>gitolite</strong>.
+        </p>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Autenticación por clave pública/privada
+        </h1>
+        <hr class="title" />
+        <p class="justify">
+          El protocolo más utilizado cuando necesitamos autenticación es SSH.
+          La autenticación se realiza mediante clave pública/privada. Veamos un
+          ejemplo de generación de llaves SSH.
+        </p>
+        <pre class="prettify lang-sh">$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/schacon/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/schacon/.ssh/id_rsa.
+Your public key has been saved in /Users/schacon/.ssh/id_rsa.pub.
+The key fingerprint is:
+43:c5:5b:5f:b1:f1:50:43:ad:20:a6:92:6a:1f:9a:3a schacon@agadorlaptop.local
+
+$ ls ~/.ssh
+id_rsa       known_hosts
+config       id_rsa.pub</pre>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Autenticación por clave pública/privada
+        </h1>
+        <hr class="title" />
+        <p class="justify">
+          La clave pública <strong>id_rsa.pub</strong> es la que 
+          utilizaremos para conseguir acceso a los repositorios.
+        </p>
+        <pre class="prettify lang-sh">$ cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNTQzEK7jgNb5erGMKOOI9bP
+ELlY0ut6ZuqXmVrzwlJ9pTLS2tpox7gFSUGVwqXRusgpbEpcoBcOKqdXKuVCZb
+p8YX56+OP07lsE5CCMJmTuO9Dcg2z+Pq4iW8/hBD3+N+891UPRbXWtggrKdTPM
+s5bnlpxa7kFdbCEG7z3ShZIyaRJW2oj3+aSxc33I+pHiQZ5yjYh5AspJLroaX/
+7MKHrFRq2NeP1FCU0jz1wkO8ZPDYadKn03dtkVY7/wfR//3pq27ckZiKFLref2
+gwTBCVCe7ZAqWQHYekNjq+QBstULMmDM0VgmBueQGLEjApDJhXDQgYPu5A2zUK
+0uR8vLNJ dave@inuik</pre>
+        <p class="justify">Entornos de hosting como <strong>github</strong>,
+        <strong>gitorious</strong> o <strong>bitbucket</strong> solicitan
+        una clave como ésta para hacer push al repositorio.</p>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Hosting de proyectos en la nube
+        </h1>
+        <hr class="title" />
+        <img class="logo" src="images/github-logo.png" />
+        <h2>Github</h2>
+        <p class="justify">
+          Es la plataforma de hosting de proyectos <strong>Git</strong> más
+          utilizada hoy en día.
+        </p>
+        <ul>
+            <li>Gratuita para proyectos open-source.</li>
+            <li>Gira en torno al desarrollador y no al proyecto.</li>
+            <li>Clonado fácil de proyectos ya en marcha.</li>
+            <li>Posibilidad de enviar parches a repositorios remotos vía <strong>pull-requests</strong>.
+        </ul>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Github: página de usuario" src='images/github01.png'>
+        <img alt="Github: gestión de claves SSH" src='images/github02.png'>
+        <img alt="Github: ejemplo de clave SSH" src='images/github03.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+        </div>
+      </article>
+
+      <article>
+        <h1 class="title">
+          Hosting de proyectos en un servidor propio
+        </h1>
+        <hr class="title" />
+        <h2>Gitolite y GitlabHQ</h2>
+        <p class="justify">
+            Podemos conseguir algo similar a github en nuestro servidor propio con las ventajas e inconvenientes que eso supone. Simplemente comentaros que necesitáis 2 proyectos de software libre:
+        </p>
+        <ul>
+            <li><strong><a
+                    href="https://github.com/sitaramc/gitolite">Gitolite</a></strong>.
+            Software de hosting de proyectos <strong>git</strong>,
+            que nos proporciona un control de acceso a los repositorios muy
+            detallado.
+            <li><strong><a href="http://gitlabhq.com/">GitlabHQ</a></strong>. Interfaz
+                web similar a <a href="http://github.com">github</a> pero con
+                una licencia MIT. Desarrollado con <a
+                    href="http://rubyonrails.org/">Ruby on Rails</a> y en
+                continua evolución.</li>
+        </ul>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="http://gitlabhq.com" src='images/gitlab01.png'>
+        <img alt="Características de GitlabHQ" src='images/gitlab02.png'>
+        <img alt="Dashboard de usuario" src='images/gitlab03.png'>
+        <img alt="Pantalla de ejemplo de un proyecto" src='images/gitlab04.png'>
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+        </div>
+      </article>
+
+
+    </section>
+      
+  </body>
+</html>
