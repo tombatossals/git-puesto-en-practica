@@ -72,8 +72,12 @@ origin  git@github.com:tombatossals/git-puesto-en-practica.git (fetch)
 origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)
 </pre>
         <h2>Permisos de acceso a un repositorio remoto</h2>
-	<p>Los proyectos de software libre suelen tener permisos de lectura sin autenticación (p.e. en <a href="http://github.com">github</a>), pero para obtener permisos de escritura deberemos autenticarnos de alguna manera.</p-<
-	<p>Primero que nada, deberemos configurar git para que envíe nuestro nombre y dirección de correo en cada <strong>commit</strong> que realice.</p>
+       <p>Los proyectos de software libre suelen tener permisos de lectura sin
+    autenticación (p.e. en <a href="http://github.com">github</a>), pero para
+    obtener permisos de escritura deberemos autenticarnos de alguna manera. Primero que nada, deberemos configurar git para que envíe nues
+        <pre class="prettyprint lang-sh">$ git config --global user.name "Peter Pan"
+$ git config --global user.email "peter.pan@nuncajamas.com"</pre>
+
         <h2>Listando los últimos cambios del repositorio</h2>
         <p>Listemos ahora los últimos cambios que se han producido en el repositorio, es decir, los últimos <strong>commits</strong> que han realizado los desarrolladores del repositorio:</p>
         <pre class="prettyprint lang-sh linenums">
@@ -152,7 +156,7 @@ Fast-forward
             <pre class="prettyprint lang-sh linenums">git tag</pre>
           </li>
           <li>Crear un nuevo tag en el commit actual:
-            <pre class="prettyprint lang-sh linenums">git tag</pre>
+            <pre class="prettyprint lang-sh linenums">git tag -a v1.4 -m 'Versión 1.4'</pre>
           </li>
         </ul>
         <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/new-feature</pre>
