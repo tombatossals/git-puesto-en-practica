@@ -132,7 +132,43 @@ Fast-forward
  create mode 100644 2011-iim/sesion01/images/espaciado.jpg
 </pre>
         <h2>Examinar el historial de cambios de un archivo</h2>
+        <p class="justify">Podemos examinar todo el historial de cambios de un
+        archivo mediante este comando:</p>
         <pre class="prettyprint lang-sh linenums">git log --follow -p &lt;archivo&gt;</pre>
+        <h2>Crear una nueva rama en el repositorio remoto</h2>
+        <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/new-feature</pre>
+        <h2>Diferencias entre 2 ramas de nuestro proyecto</h2>
+        <p class="justify">Para obtener las diferencias de 2 ramas de nuestro
+        proyecto podemos utilizar este comando:</p>
+        <pre class="prettyprint lang-sh linenums">git diff master..experiment</pre>
+
+        <h2>Manejar etiquetas (tags)</h2>
+        <p class="justify">Podemos gestionar etiquetas en nuestros proyectos de
+        una manera muy sencilla, lo que nos ayudará a registrar de manera
+        cómodo e intuitiva los puntos vitales de la evolución de nuestro
+        proyecto.</p>
+        <ul>
+          <li>Listar tags:
+            <pre class="prettyprint lang-sh linenums">git tag</pre>
+          </li>
+          <li>Crear un nuevo tag en el commit actual:
+            <pre class="prettyprint lang-sh linenums">git tag</pre>
+          </li>
+        </ul>
+        <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/new-feature</pre>
+        <h2>Servidor web con <strong>instaweb</strong></h2>
+        <p class="justify">Podemos arrancar un servidor web que nos permita
+        navegar el contenido de nuestro repositorio de una manera más amigable,
+        para ello deberemos tener instalado <strong>lighttpd</strong> o
+        cualquier otro servidor web compatible y ejecutar:</p>
+        <pre class="prettyprint lang-sh linenums">git instaweb</pre>
+        <p class="justify">Para que no nos aparezca el mensaje de
+        <strong>Unnamed repository</strong>:</p>
+        <pre class="prettyprint lang-sh linenums">echo "Mi proyecto" &gt; .git/description</pre>
+        <p>Veremos algo así:</p>
+        <img src="images/instaweb.png" />
+        <p class="justify">Para pararlo:</p>
+        <pre class="prettyprint lang-sh linenums">git instaweb --stop</pre>
         <br />
 		</article>
     </div>
