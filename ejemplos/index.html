@@ -155,15 +155,39 @@ Fast-forward
         una manera muy sencilla, lo que nos ayudará a registrar de manera
         cómodo e intuitiva los puntos vitales de la evolución de nuestro
         proyecto.</p>
-        <ul>
-          <li>Listar tags:
-            <pre class="prettyprint lang-sh linenums">git tag</pre>
-          </li>
-          <li>Crear un nuevo tag en el commit actual:
-            <pre class="prettyprint lang-sh linenums">git tag -a v1.4 -m 'Versión 1.4'</pre>
-          </li>
-        </ul>
-        <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/new-feature</pre>
+        Listar tags:
+        <pre class="prettyprint lang-sh linenums">git tag</pre>
+        Crear un nuevo tag en el commit actual:
+        <pre class="prettyprint lang-sh linenums">git tag -a v1.4 -m 'Versión 1.4'</pre>
+        Crear un nuevo tag en un commit pasado:
+        <pre class="prettyprint lang-sh linenums">$ git tag -a v1.2 9fceb02</pre> 
+
+        <h2>Crear una rama local en el repositorio remoto:</h2>
+        Es un comando un tanto extraño, si tenemos una rama local llamada
+        "desarrollo" podemos enviarla al repositorio remoto origin
+        <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/desarrollo</pre>
+
+        <h2>Averiguar quién hizo qué cosa en un archivo: git blame.</h2>
+        <pre class="prettyprint lang-sh linenums">$ git blame site.yaml
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100  1) handlers:
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  2) - url: '/primeros-pasos/'
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  3)   static_files: 'primeros-pasos/index.html'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100  4)   upload: '.*'
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  5) - url: '/trabajando-en-equipo/'
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  6)   static_files: 'trabajando-en-equipo/index.html'
+e7286e0d (David Rubert 2011-12-18 18:04:07 +0100  7)   upload: '.*'
+e6d6195b (David Rubert 2012-01-08 22:12:17 +0100  8) - url: '/autenticacion-y-hosting/'
+e6d6195b (David Rubert 2012-01-08 22:12:17 +0100  9)   static_files: 'autenticacion-y-hosting/index.html'
+e6d6195b (David Rubert 2012-01-08 22:12:17 +0100 10)   upload: '.*'
+6f0dd636 (David Rubert 2012-01-12 23:13:47 +0100 11) - url: '/ejemplos/'
+6f0dd636 (David Rubert 2012-01-12 23:13:47 +0100 12)   static_files: 'ejemplos/index.html'
+fde35e7f (David Rubert 2011-12-18 23:51:40 +0100 13)   upload: '.*'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 14) - url: '/'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 15)   static_files: 'index.html'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 16)   upload: '.*'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 17) - url: '/'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 18)   static_dir: '/'</pre>
+        
         <h2>Servidor web con <strong>instaweb</strong></h2>
         <p class="justify">Podemos arrancar un servidor web que nos permita
         navegar el contenido de nuestro repositorio de una manera más amigable,
