@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Git puesto en práctica</title>
+	<title>Git puesto en práctica. Ejemplos.</title>
 	<meta name="description" content="Git puesto en práctica. Presentación didáctica y
     práctica sobre el uso de Git en un proyecto de software."
 	<meta name="author" content="David Rubert">
@@ -23,7 +23,7 @@
 	<div id="header-container">
         <header>
             <a class="home" href=".."><img src="../images/home-icon.png" /></a>
-            <h1 id="title"><span class="git">Práctica</span> y algunas recetas</h1>
+            <h1 id="title"><span class="git">Ejemplos</span> y recetas</h1>
 		</header>
 	</div>
     <div id="main" class="wrapper">
@@ -33,13 +33,17 @@
         <h2>Inicializar un repositorio</h2>
         <pre class="prettyprint lang-sh linenums"># Creamos un directorio y un archivo
 mkdir helloworld
-cd hellworld
+cd helloworld
 echo "Hello World" > README
 
 # Inicializamos el repositorio
 git init
 Initialized empty Git repository in /home/dave/helloworld/.git/
 </pre>
+        <h2>Añadir archivos al repositorio y realizar el primer commit</h2>
+        <pre class="prettyprint lang-sh linenums">git add README
+git commit -d "First commit"</pre>
+        
         <h2>Enlazar con un repositorio remoto</h2>
         <p>Imaginaros ahora que queremos que nuestro repositorio local recien
         creado se comunique con un repositorio remoto. Definiremos para ello un
@@ -72,8 +76,12 @@ origin  git@github.com:tombatossals/git-puesto-en-practica.git (fetch)
 origin  git@github.com:tombatossals/git-puesto-en-practica.git (push)
 </pre>
         <h2>Permisos de acceso a un repositorio remoto</h2>
-	<p>Los proyectos de software libre suelen tener permisos de lectura sin autenticación (p.e. en <a href="http://github.com">github</a>), pero para obtener permisos de escritura deberemos autenticarnos de alguna manera.</p-<
-	<p>Primero que nada, deberemos configurar git para que envíe nuestro nombre y dirección de correo en cada <strong>commit</strong> que realice.</p>
+       <p>Los proyectos de software libre suelen tener permisos de lectura sin
+    autenticación (p.e. en <a href="http://github.com">github</a>), pero para
+    obtener permisos de escritura deberemos autenticarnos de alguna manera. Primero que nada, deberemos configurar git para que envíe nues
+        <pre class="prettyprint lang-sh">$ git config --global user.name "Peter Pan"
+$ git config --global user.email "peter.pan@nuncajamas.com"</pre>
+
         <h2>Listando los últimos cambios del repositorio</h2>
         <p>Listemos ahora los últimos cambios que se han producido en el repositorio, es decir, los últimos <strong>commits</strong> que han realizado los desarrolladores del repositorio:</p>
         <pre class="prettyprint lang-sh linenums">
@@ -132,7 +140,67 @@ Fast-forward
  create mode 100644 2011-iim/sesion01/images/espaciado.jpg
 </pre>
         <h2>Examinar el historial de cambios de un archivo</h2>
+        <p class="justify">Podemos examinar todo el historial de cambios de un
+        archivo mediante este comando:</p>
         <pre class="prettyprint lang-sh linenums">git log --follow -p &lt;archivo&gt;</pre>
+        <h2>Crear una nueva rama en el repositorio remoto</h2>
+        <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/new-feature</pre>
+        <h2>Diferencias entre 2 ramas de nuestro proyecto</h2>
+        <p class="justify">Para obtener las diferencias de 2 ramas de nuestro
+        proyecto podemos utilizar este comando:</p>
+        <pre class="prettyprint lang-sh linenums">git diff master..experiment</pre>
+
+        <h2>Manejar etiquetas (tags)</h2>
+        <p class="justify">Podemos gestionar etiquetas en nuestros proyectos de
+        una manera muy sencilla, lo que nos ayudará a registrar de manera
+        cómodo e intuitiva los puntos vitales de la evolución de nuestro
+        proyecto.</p>
+        Listar tags:
+        <pre class="prettyprint lang-sh linenums">git tag</pre>
+        Crear un nuevo tag en el commit actual:
+        <pre class="prettyprint lang-sh linenums">git tag -a v1.4 -m 'Versión 1.4'</pre>
+        Crear un nuevo tag en un commit pasado:
+        <pre class="prettyprint lang-sh linenums">$ git tag -a v1.2 9fceb02</pre> 
+
+        <h2>Crear una rama local en el repositorio remoto:</h2>
+        Es un comando un tanto extraño, si tenemos una rama local llamada
+        "desarrollo" podemos enviarla al repositorio remoto origin
+        <pre class="prettyprint lang-sh linenums">git push origin origin:refs/heads/desarrollo</pre>
+
+        <h2>Averiguar quién hizo qué cosa en un archivo: git blame.</h2>
+        <pre class="prettyprint lang-sh linenums">$ git blame site.yaml
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100  1) handlers:
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  2) - url: '/primeros-pasos/'
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  3)   static_files: 'primeros-pasos/index.html'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100  4)   upload: '.*'
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  5) - url: '/trabajando-en-equipo/'
+7d8ccd71 (David Rubert 2011-12-22 19:43:37 +0100  6)   static_files: 'trabajando-en-equipo/index.html'
+e7286e0d (David Rubert 2011-12-18 18:04:07 +0100  7)   upload: '.*'
+e6d6195b (David Rubert 2012-01-08 22:12:17 +0100  8) - url: '/autenticacion-y-hosting/'
+e6d6195b (David Rubert 2012-01-08 22:12:17 +0100  9)   static_files: 'autenticacion-y-hosting/index.html'
+e6d6195b (David Rubert 2012-01-08 22:12:17 +0100 10)   upload: '.*'
+6f0dd636 (David Rubert 2012-01-12 23:13:47 +0100 11) - url: '/ejemplos/'
+6f0dd636 (David Rubert 2012-01-12 23:13:47 +0100 12)   static_files: 'ejemplos/index.html'
+fde35e7f (David Rubert 2011-12-18 23:51:40 +0100 13)   upload: '.*'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 14) - url: '/'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 15)   static_files: 'index.html'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 16)   upload: '.*'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 17) - url: '/'
+9e34c40d (David Rubert 2011-12-09 09:25:04 +0100 18)   static_dir: '/'</pre>
+        
+        <h2>Servidor web con <strong>instaweb</strong></h2>
+        <p class="justify">Podemos arrancar un servidor web que nos permita
+        navegar el contenido de nuestro repositorio de una manera más amigable,
+        para ello deberemos tener instalado <strong>lighttpd</strong> o
+        cualquier otro servidor web compatible y ejecutar:</p>
+        <pre class="prettyprint lang-sh linenums">git instaweb</pre>
+        <p class="justify">Para que no nos aparezca el mensaje de
+        <strong>Unnamed repository</strong>:</p>
+        <pre class="prettyprint lang-sh linenums">echo "Mi proyecto" &gt; .git/description</pre>
+        <p>Veremos algo así:</p>
+        <img src="images/instaweb.png" />
+        <p class="justify">Para pararlo:</p>
+        <pre class="prettyprint lang-sh linenums">git instaweb --stop</pre>
         <br />
 		</article>
     </div>

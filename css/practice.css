@@ -250,6 +250,20 @@ a.home > img {
     width: 64px;
 }
 
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul > li {
+    line-height: 4em;
+    margin-top: 2em;
+}
+
+ul > li > strong {
+    font-size: 1.2em;
+}
+
 a.home:hover {
     box-shadow: 0 0 5px 5px #888;
     border-radius: 10px;
